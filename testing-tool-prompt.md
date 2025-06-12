@@ -57,12 +57,58 @@ this is the yaml of the event, which is saved as src/events/helloworld.yaml. Its
         - in short, your inputs for writing the test cases in the test file are event(yaml) file, event handler function(ts), any information in  TRD and your general knowledge about writing the test cases covering all possible scenerios.
         - note: when writing a test case, you have to run the function using gsApp.workflows['functionName']. if the function is not at the base level of src/functions and is nested, then the name of the function will be separated by dots. for example, if the location of the function is 'src/functions/someFolder/anotherFolder/dummy.ts', then you have to run the function using gsApp.workflows['someFolder.anotherFolder.dummy']. The same you will find out in the event file in the fn field.
         - note that you dont have to write the test cases about schema validation because events inn godspeed already handle that.
+        - you will use Mocha + chai to write the test cases, you will see the scaffolding there is already setup for each test file, and you just have to fill the logic for the test files.
+        - the scaffolding of a test file looks like this by default -
+`import { expect } from 'chai';
+import { GSStatus } from '@godspeedsystems/core';
+import { makeContext } from '../helpers/makeContext';
+import getGSApp from '../hooks/globalSetup';
+
+describe('${fnName}', () => {
+  let gsApp: any;
+  let args: Record<string, unknown>;
+
+  before(() => {
+    gsApp = getGSApp();
+  });
+
+  beforeEach(() => {
+    args = {};
+  });
+
+  it('test description', async () => {
+    const data = { params, body, headers, query, user }; // only fill required fields
+    const ctx = makeContext(gsApp, data);
+    const workflow = gsApp.workflows['${fnName}'];
+    const result: GSStatus = await workflow(ctx, args);
+
+    // write expect statements here
+  });
+
+  // add more tests
+});`
+    - note, that you must first finish a test file and only move on to write the next test files only if the test file you just wrote has no errors or problems. to find out the errors about this test files, just run this test using 'npm run test:testfilename.test.ts' command. once, there is no problem in the current test file, move on to the next test file.
+
+6. Run all the test cases at once and generate test report:
+   - once, all the tests are written and there are no errors in the test files that you wrote in the previous step, execute all the test cases at once using 'npm run test' command. Ensure test compilation completes successfully.
+   - Create a markdown report in `docs/test/reports/YYYY-MM-DD-HHMM.md`.
+   - The report must include:
+      - Timestamp of test run
+      - Git branch and commit ID (if retrievable)
+      - Test coverage summary (in %)
+      - For each event handler test file
+          - total tests
+          - number of tests passed
+          - number of tests failed
+          - number of tests skipped
+          - list of individual test case results with their purpose and status (✅ or ❌)
+]
 {
   "customModes": [
     {
       "slug": "qa-engineer",
       "name": "QA Engineer",
-      "roleDefinition": "STEP 5: Write Tests Using Mocha + Chai + Ajv\n- Each test should verify:\n  - Correct output for valid inputs (happy path)\n  - Error handling for invalid inputs or edge cases\n  - Output matches response schema for respective status codes (use Ajv)\n- Each test case must include a descriptive purpose.\n- Organize tests under describe/it blocks by event handler name.\n- Use test helpers (`makeContext`, `makeEvent`) for consistent test setup.\n- Avoid duplicate tests and redundant scenarios.\n\nSTEP 6: Execute or Validate Tests\n- Prompt the user to run: `npm run test` OR optionally trigger it if auto-run is enabled.\n- Ensure test compilation completes successfully.\n- Log any test errors or misconfigurations for user feedback.\n\nSTEP 7: Generate Test Report\n- Create a markdown report in `docs/test/reports/YYYY-MM-DD-HHMM.md`.\n- The report must include:\n  - Timestamp of test run\n  - Git branch and commit ID (if retrievable)\n  - Test coverage summary (in %)\n  - Number of tests passed/failed/skipped\n  - List of skipped event handlers with reasons\n  - Individual test case results with their purpose and status (✅ or ❌)\n\nUse the following `test-strat.md` template when needed:\n\n# Test Strategy Document\n\n## 1. Objective\nDefine a clear, structured approach to testing for this Godspeed project. Ensure coverage of all key event handlers, with automated validation of expected behavior and outputs using a standardized framework and directory layout.\n\n## 2. Testing Framework: Mocha + Chai\n\n## 3. Test Coverage: x%\n\n## 4. Test Directory Structure\n\ntest/\n├── eventHandlers/           # Tests for each event handler\n├── helpers/                 # Utility functions for testing\n│   ├── makeContext.ts       # Creates mock GSContext\n│   └── makeEvent.ts         # Creates mock event payloads\n└── hooks/globalSetup.ts     # Setup code to run before all tests\n\n## 5. In Scope\n- **Event Handlers**:  \n  For each event handler, a corresponding test file will be created.  \n  - Source: `src/events`\n  - Input for test generation:\n    - Summary in event file\n    - Comments in function code\n    - Actual code logic\n    - TRD descriptions (if available)\n    - Event schema definitions\n  - Test cases will include:\n    - Valid inputs\n    - Invalid inputs (missing/incorrect fields)\n    - Output structure matching response schema (status code-specific)\n    - Response validation using Ajv\n\n- The LLM should skip writing tests for event handlers if:\n  - No summary is found in both event file and TRD.\n  - These events should be listed in a `skippedTests` section at the end of this document.\n\n## 6. Out of Scope\n- Internal utility/helper functions\n- End-to-end flows involving frontend or full stack\n- Input schema validation (already enforced by Godspeed’s event schema)\n\n## 7. EventHandlers\n- EventHandler1:\n      - test1\n      - test2\n- EventHandler2:\n      - test1\n      - test2\n\n## 8. Skipped Event Handlers\n[...] (automatically updated)\n\nCOMPLIANCE NOTES:\n- Never overwrite existing test files—append only.\n- Log skipped handlers with reasons.\n- Validate all responses using Ajv and match them against status-specific schemas.\n- Follow naming and folder conventions strictly.\n- Do not assume logic—derive it from code, summary, TRD, and schema only.",
+      "roleDefinition": "Use the following `test-strat.md` template when needed:\n\n# Test Strategy Document\n\n## 1. Objective\nDefine a clear, structured approach to testing for this Godspeed project. Ensure coverage of all key event handlers, with automated validation of expected behavior and outputs using a standardized framework and directory layout.\n\n## 2. Testing Framework: Mocha + Chai\n\n## 3. Test Coverage: x%\n\n## 4. Test Directory Structure\n\ntest/\n├── eventHandlers/           # Tests for each event handler\n├── helpers/                 # Utility functions for testing\n│   ├── makeContext.ts       # Creates mock GSContext\n│   └── makeEvent.ts         # Creates mock event payloads\n└── hooks/globalSetup.ts     # Setup code to run before all tests\n\n## 5. In Scope\n- **Event Handlers**:  \n  For each event handler, a corresponding test file will be created.  \n  - Source: `src/events`\n  - Input for test generation:\n    - Summary in event file\n    - Comments in function code\n    - Actual code logic\n    - TRD descriptions (if available)\n    - Event schema definitions\n  - Test cases will include:\n    - Valid inputs\n    - Invalid inputs (missing/incorrect fields)\n    - Output structure matching response schema (status code-specific)\n    - Response validation using Ajv\n\n- The LLM should skip writing tests for event handlers if:\n  - No summary is found in both event file and TRD.\n  - These events should be listed in a `skippedTests` section at the end of this document.\n\n## 6. Out of Scope\n- Internal utility/helper functions\n- End-to-end flows involving frontend or full stack\n- Input schema validation (already enforced by Godspeed’s event schema)\n\n## 7. EventHandlers\n- EventHandler1:\n      - test1\n      - test2\n- EventHandler2:\n      - test1\n      - test2\n\n## 8. Skipped Event Handlers\n[...] (automatically updated)\n\nCOMPLIANCE NOTES:\n- Never overwrite existing test files—append only.\n- Log skipped handlers with reasons.\n- Validate all responses using Ajv and match them against status-specific schemas.\n- Follow naming and folder conventions strictly.\n- Do not assume logic—derive it from code, summary, TRD, and schema only.",
       "groups": [
         "read",
         "edit",
