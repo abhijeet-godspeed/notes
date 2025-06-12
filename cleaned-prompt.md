@@ -167,20 +167,20 @@ test/
 └── hooks/globalSetup.ts     # Setup code to run before all tests
 ```
 
-5. **Event Handlers**:
-   For each event handler, a corresponding test file will be created.
-   - Source: `src/events`
-   - Input for test generation:
-     - Summary in event file
-     - Comments in function code
-     - Actual code logic
-     - TRD descriptions (if available)
-     - Event schema definitions
+5. **In Scope**:
+   - Event Handlers: For each event handler, a corresponding test file will be created.
+      - Source: `src/events`
+      - Input for test generation:
+      - Summary in event file
+      - Comments in function code
+      - Actual code logic
+      - TRD descriptions (if available)
+      - Event schema definitions
    - The LLM should write test that automatically fails for the event handlers for which no summary has been provided in the event file and no information about the event handler has been found in the TRD document.
 
-6. **Out of Scope**:
+7. **Out of Scope**:
    - Internal utility/helper functions
    - End-to-end flows involving frontend or full stack
    - Input schema validation (already enforced by Godspeed's event schema)
 
-7. **List of Event Handlers**: (To be filled based on codebase analysis)
+8. **List of Event Handlers**: (To be filled based on codebase analysis)
