@@ -150,39 +150,6 @@ If a test category (e.g., authorization, error recovery, race condition) **does 
 * You don't have to write test cases about schema validation because events in Godspeed already handle that.
 * Use Mocha + Chai to write test cases. The scaffolding is already set up for each test file, and you just have to fill the logic.
 
-**Test File Scaffolding Template:**
-
-```typescript
-import { expect } from 'chai';
-import { GSStatus } from '@godspeedsystems/core';
-import { makeContext } from '../helpers/makeContext';
-import getGSApp from '../hooks/globalSetup';
-
-describe('${fnName}', () => {
-  let gsApp: any;
-  let args: Record<string, unknown>;
-
-  before(() => {
-    gsApp = getGSApp();
-  });
-
-  beforeEach(() => {
-    args = {};
-  });
-
-  it('test description', async () => {
-    const data = { params, body, headers, query, user }; // only fill required fields
-    const ctx = makeContext(gsApp, data);
-    const workflow = gsApp.workflows['${fnName}'];
-    const result: GSStatus = await workflow(ctx, args);
-
-    // write expect statements here
-  });
-
-  // add more tests
-});
-```
-
 **⛔ Do Not Proceed to the Next File Yet**
 
 Once you finish writing test cases for an event handler:
