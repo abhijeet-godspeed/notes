@@ -96,27 +96,22 @@ describe('${fnName}', () => {
       - Timestamp of test run
       - Git branch and commit ID (if retrievable)
       - Test coverage summary (in %)
+      - TRD available(true if you found it in docs directory and used to write the test cases)
+      - PRD available(true if you found it in docs directory and used to write the test cases)
       - For each event handler test file
           - total tests
           - number of tests passed
           - number of tests failed
           - number of tests skipped
           - list of individual test case results with their purpose and status (✅ or ❌)
-]
-{
-  "customModes": [
-    {
-      "slug": "qa-engineer",
-      "name": "QA Engineer",
-      "roleDefinition": "Use the following `test-strat.md` template when needed:\n\n# Test Strategy Document\n\n## 1. Objective\nDefine a clear, structured approach to testing for this Godspeed project. Ensure coverage of all key event handlers, with automated validation of expected behavior and outputs using a standardized framework and directory layout.\n\n## 2. Testing Framework: Mocha + Chai\n\n## 3. Test Coverage: x%\n\n## 4. Test Directory Structure\n\ntest/\n├── eventHandlers/           # Tests for each event handler\n├── helpers/                 # Utility functions for testing\n│   ├── makeContext.ts       # Creates mock GSContext\n│   └── makeEvent.ts         # Creates mock event payloads\n└── hooks/globalSetup.ts     # Setup code to run before all tests\n\n## 5. In Scope\n- **Event Handlers**:  \n  For each event handler, a corresponding test file will be created.  \n  - Source: `src/events`\n  - Input for test generation:\n    - Summary in event file\n    - Comments in function code\n    - Actual code logic\n    - TRD descriptions (if available)\n    - Event schema definitions\n  - Test cases will include:\n    - Valid inputs\n    - Invalid inputs (missing/incorrect fields)\n    - Output structure matching response schema (status code-specific)\n    - Response validation using Ajv\n\n- The LLM should skip writing tests for event handlers if:\n  - No summary is found in both event file and TRD.\n  - These events should be listed in a `skippedTests` section at the end of this document.\n\n## 6. Out of Scope\n- Internal utility/helper functions\n- End-to-end flows involving frontend or full stack\n- Input schema validation (already enforced by Godspeed’s event schema)\n\n## 7. EventHandlers\n- EventHandler1:\n      - test1\n      - test2\n- EventHandler2:\n      - test1\n      - test2\n\n## 8. Skipped Event Handlers\n[...] (automatically updated)\n\nCOMPLIANCE NOTES:\n- Never overwrite existing test files—append only.\n- Log skipped handlers with reasons.\n- Validate all responses using Ajv and match them against status-specific schemas.\n- Follow naming and folder conventions strictly.\n- Do not assume logic—derive it from code, summary, TRD, and schema only.",
-      "groups": [
-        "read",
-        "edit",
-        "browser",
-        "command",
-        "mcp"
-      ],
-      "source": "global"
-    }
-  ]
-}
+
+Standard template for test-strategy.md file -
+1. Objective - Define a clear, structured approach to testing for this Godspeed project. Ensure coverage of all key event handlers, with automated validation of expected behavior and outputs using a standardized framework and directory layout. ask this from the user.
+2. Testing Framework: Mocha + Chai
+3. Test Coverage: x% (ask this from the user)
+4. Test Directory Structure\n\ntest/\n├── eventHandlers/           # Tests for each event handler\n├── helpers/                 # Utility functions for testing\n│   ├── makeContext.ts       # Creates mock GSContext\n│   └── makeEvent.ts         # Creates mock event payloads\n└── hooks/globalSetup.ts     # Setup code to run before all tests\n\n##
+5. **Event Handlers**:  \n  For each event handler, a corresponding test file will be created.  \n  - Source: `src/events`\n  - Input for test generation:\n    - Summary in event file\n    - Comments in function code\n    - Actual code logic\n    - TRD descriptions (if available)\n    - Event schema definitions\n  - The LLM should write test that automatically fails for the event handlers for which no summary has been provided in the event file and no information about the event handler has been found in the TRD document.\n\n##
+6. Out of Scope\n- Internal utility/helper functions\n- End-to-end flows involving frontend or full stack\n- Input schema validation (already enforced by Godspeed’s event schema)
+7. List of Event Handlers
+
+COMPLIANCE NOTES:\n- Never overwrite existing test files—append only. \n- Follow naming and folder conventions strictly.\n- Do not assume logic—derive it from code, summary, TRD, and schema only. \n - follow the godspeed standards strictly",
