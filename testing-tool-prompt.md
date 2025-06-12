@@ -82,7 +82,79 @@ Iterate through each `.test.ts` file in `test/eventHandlers/` directory. For eac
 
 4. **Check TRD Documentation**: If there is any TRD file in the docs directory, read it and see if there is any information about this event handler function. This will be your third input.
 
-5. **Apply Testing Knowledge**: Apart from the above three inputs, use your knowledge about writing test cases and try to cover every single type of test that you can write for this test file/event handler.
+5. **Testing Knowledge**: Apart from the above three inputs, use the following list of some common scenarios for which we write tests. Search for the scenerios that are applicable for this event handler and write tests for these scenerios. Even after that if some scenerios are missed in the following list and you think we should write tests for them for this event handler, write them too.
+Here's a generalized list of test cases for controller functions/business logic, covering various scenarios:
+
+```
+1. Basic Functionality:
+
+Successful execution: Test that the function executes successfully under normal conditions and returns the expected result.
+Correct data processing: Verify that the function correctly processes input data and produces the correct output.
+Data transformation: If the function transforms data, ensure the transformation is accurate and complete.
+Side effects: Test that the function produces the expected side effects (e.g., database updates, sending notifications).
+
+2. Resource Management (CRUD operations):
+
+Create:
+Successful creation: Test that a new resource is created successfully with valid data.
+Duplicate resource: Test that an error is returned if attempting to create a duplicate resource when uniqueness is expected.
+Resource limits: Test that the function handles resource limits correctly (e.g., maximum number of resources allowed).
+Default values: Verify that default values are assigned correctly when not provided in the input.
+Read:
+Resource exists: Test that the function retrieves an existing resource successfully.
+Resource does not exist: Test that the function handles the case where the resource does not exist (e.g., returns an error, returns null).
+Permissions: Test that the function enforces permissions correctly (e.g., only authorized users can access the resource).
+Update:
+Successful update: Test that an existing resource is updated successfully with valid data.
+Partial update: Test that the function correctly handles partial updates (i.e., updating only some fields).
+Invalid updates: Test that the function prevents invalid updates (e.g., updating a read-only field, setting a field to an invalid value).
+Optimistic locking: If optimistic locking is used, test that the function handles concurrent updates correctly.
+Delete:
+Successful deletion: Test that an existing resource is deleted successfully.
+Resource does not exist: Test that the function handles the case where the resource does not exist (e.g., returns an error, does nothing).
+Dependencies: Test that the function handles dependencies correctly (e.g., prevents deleting a resource that is referenced by other resources).
+Permissions: Test that the function enforces permissions correctly (e.g., only authorized users can delete the resource).
+
+3. Error Handling:
+
+Expected errors: Test that the function returns the expected errors for various error conditions (e.g., invalid input, resource not found, permission denied).
+Unexpected errors: Test that the function handles unexpected errors gracefully (e.g., logs the error, returns a generic error message).
+Error propagation: Ensure that errors are propagated correctly to the caller.
+Error recovery: If the function attempts to recover from errors, ensure that the recovery is successful.
+
+4. Security:
+
+Authentication: Test that the function requires authentication when necessary.
+Authorization: Test that the function enforces authorization correctly (e.g., only authorized users can perform certain actions).
+Input validation: (See above) Prevent injection attacks (e.g., SQL injection, XSS) by validating and sanitizing input data.
+Data protection: Ensure that sensitive data is protected (e.g., encrypted, masked).
+
+5. Concurrency:
+
+Thread safety: If the function is used in a multi-threaded environment, ensure that it is thread-safe.
+Race conditions: Test for race conditions and ensure that the function handles them correctly.
+Deadlocks: Test for deadlocks and ensure that the function avoids them.
+
+6. Performance:
+
+Response time: Test that the function responds within an acceptable time frame.
+Resource usage: Monitor the function's resource usage (e.g., CPU, memory) and ensure that it is within acceptable limits.
+Scalability: Test that the function can handle a large number of concurrent requests.
+
+7. Integration:
+
+Dependencies: Test that the function integrates correctly with its dependencies (e.g., databases, external APIs).
+Other modules: Test that the function integrates correctly with other modules in the system.
+
+8. State Management:
+
+Idempotency: Test that the function is idempotent when appropriate (i.e., calling the function multiple times with the same input has the same effect as calling it once).
+State transitions: Test that the function correctly manages state transitions.
+9. Asynchronous Operations:
+
+Callbacks: Test that callbacks are executed correctly.
+Promises: Test that promises are resolved or rejected correctly.
+Async/await: Test that asynchronous operations are handled correctly using async/await.```
 
 **Important Notes:**
 - If you cannot find meaningful summary in the event file and you cannot find any information about this event handler in the PRD, write one single test case for this file that should fail with a message that it failed because there is no information about this event handler in the event file, neither in PRD. If any of the two things are available, proceed to write test cases normally.
