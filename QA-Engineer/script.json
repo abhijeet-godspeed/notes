@@ -1,0 +1,1 @@
+"gen-test-scaffolding": "npx ts-node general-scaffolding.ts  && npx ts-node eventhandlers-scaffolding.ts",
