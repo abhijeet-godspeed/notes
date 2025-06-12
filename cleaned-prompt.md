@@ -184,10 +184,3 @@ test/
    - Input schema validation (already enforced by Godspeed's event schema)
 
 7. **List of Event Handlers**: (To be filled based on codebase analysis)
-
-## Compliance Notes
-
-- Never overwrite existing test files—append only
-- Follow naming and folder conventions strictly
-- Do not assume logic—derive it from code, summary, TRD, and schema only
-- Follow the Godspeed standards strictly
