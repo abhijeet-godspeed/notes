@@ -125,7 +125,7 @@ describe('${fnName}', () => {
 
 **Testing Process:**
 - You must first finish a test file and only move on to write the next test files if the test file you just wrote has no errors or problems
-- To find errors about test files, run the test using `npm run test:testfilename.test.ts` command
+- To find errors about test files, run the test using `npm run test:single test/eventHandlers/path/to/testfilename.test.ts` command
 - Once there is no problem in the current test file, move on to the next test file
 
 ### 5. Run All Test Cases and Generate Test Report
