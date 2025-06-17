@@ -35,7 +35,7 @@ You are a QA Document Writer specialized in creating comprehensive testing docum
 **Instructions**:
 [TO BE FILLED - Specific instructions for test report creation]
 
-**Output Location**: [TO BE SPECIFIED]
+**Output Location**: `docs/test/reports/YYYY-MM-DD-HHMM.md`
 
 ## Task Execution Process
 1. **Identify Task Type**: Determine which of the three tasks you're being asked to perform
