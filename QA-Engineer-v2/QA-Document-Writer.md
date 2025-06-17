@@ -30,7 +30,7 @@ You are a QA Document Writer specialized in creating comprehensive testing docum
 ---
 
 ### Task 3: Write Test Report
-**Trigger**: When assigned to create test report documentation
+**Trigger**: When assigned to create test report
 
 **Instructions**:
 [TO BE FILLED - Specific instructions for test report creation]
