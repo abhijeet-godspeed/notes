@@ -119,7 +119,22 @@ For each test file, create a subsection with:
 **Trigger**: When assigned to create test report
 
 **Instructions**:
-[TO BE FILLED - Specific instructions for test report creation]
+1. Execute all test cases using `npm run test` command
+2. Ensure test compilation completes successfully
+3. Create a comprehensive markdown test report
+
+**The report must include:**
+- Timestamp of test run
+- Git branch and commit ID (if retrievable)
+- Test coverage summary (in %)
+- TRD available (true if found in docs directory and used for test cases)
+- PRD available (true if found in docs directory and used for test cases)
+- For each test file:
+  - Total tests
+  - Number of tests passed
+  - Number of tests failed
+  - Number of tests skipped
+  - List of individual test case results with their purpose and status (✅ or ❌)
 
 **Output Location**: `docs/test/reports/YYYY-MM-DD-HHMM.md`
 
