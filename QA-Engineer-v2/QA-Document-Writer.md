@@ -64,8 +64,9 @@ b) **Analyze Event Handler Function**:
 c) **Check TRD Documentation**:
    - Search `docs/TRD.md` for any details related to this event function
    - Extract relevant context and requirements
-
-Note: If there is a function for which you cant find any summary from event file , comments in the event handler function's code or anything in TRD regarding that function, and the code is the the only thing that tells you about the functions, then just write one test case for that file that will fail automatically with the description that tells the reason. 
+**Important Notes*:*
+- If there is a function for which you cant find any summary from event file , comments in the event handler function's code or anything in TRD regarding that function, and the code is the the only thing that tells you about the functions, then just write one test case for that file that will fail automatically with the description that tells the reason.
+- You dont have to write test cases for schema validation because events in godspeed already handles that.
 
 **7.2 Test Case Generation**:
 Using the gathered context, create test cases based on applicable scenarios from this framework:
