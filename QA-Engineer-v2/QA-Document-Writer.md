@@ -108,7 +108,7 @@ For each test file, create a subsection with:
 - Locate the "List of Test Files" section
 - Create a task for each test file listed
 - For each task, create subtasks corresponding to each test case of that test file
-- somewhere in the document mention that the allowed status values for tasks/subtasks are 'not started', 'in progress', or 'completed'
+- somewhere in the document mention that the allowed status values for tasks/subtasks are 'not started', 'in progress', 'skipped' or 'completed'
 - Set all tasks and subtasks to 'not started' by default
 
 **Output Location**: `docs/test/tasks.md`
