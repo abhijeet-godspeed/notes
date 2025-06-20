@@ -18,87 +18,117 @@ Create a comprehensive test strategy document following this exact template stru
 #### Document Template Structure:
 
 **1. Objective**
-- Ask the user: "What is the primary objective for testing this Godspeed project?"
-- Wait for user response and include their objective in this section
+\[User-provided answer about the primary objective for testing this Godspeed project]
 
 **2. Testing Framework**
-- Always specify: "Mocha + Chai"
+Mocha + Chai
 
 **3. Test Coverage**
-- Ask the user: "How much test coverage(in %) are you targeting for this project?"
-- Wait for user response and document their coverage requirements
+\[User-provided test coverage % target]
 
 **4. Test Directory Structure**
-- Check if `test` directory exists in project root
-- If EXISTS: Document the complete directory structure of the test folder
-- If NOT EXISTS: 
-  - Inform user: "Test directory does not exist in project root"
-  - Instruct: "Please generate the test directory before proceeding"
-  - DO NOT continue to next sections until test directory is created
+\[Actual structure of `test/` folder, or prompt to generate one if missing]
 
 **5. In Scope**
-Document the following testing scope:
-- **Event Handlers**: For each event, a corresponding test file will be created
+
+* **Event Handlers**: For each event, a corresponding test file will be created
 
 **6. Out of Scope**
-Always include these exclusions:
-- Internal utility/helper functions
-- End-to-end flows involving frontend or full stack
-- Input schema validation (already enforced by Godspeed's event schema)
+
+* Internal utility/helper functions
+* End-to-end flows involving frontend or full stack
+* Input schema validation (already enforced by Godspeed's event schema)
 
 **7. List of Test Files**
-For each file in `test/eventHandlers` folder:
+For each file in `test/eventHandlers`, include:
 
-**7.1 Context Gathering Process**:
+* File name as header
+* List of test cases with brief descriptions
+* Rationale for why each test case is relevant to this specific event handler
+
+**8. Godspeed specific instructions**
+\[Knowledge base output from rag-node mcp server about Godspeed]
+
+#### Instructions to fill the above template:
+
+**1. Objective**
+
+* Ask the user: "What is the primary objective for testing this Godspeed project?"
+* Wait for user response and include their objective in section 1
+
+**2. Testing Framework**
+
+* Always specify: "Mocha + Chai"
+
+**3. Test Coverage**
+
+* Ask the user: "How much test coverage (in %) are you targeting for this project?"
+* Wait for user response and include it in section 3
+
+**4. Test Directory Structure**
+
+* Check if `test` directory exists in project root
+* If EXISTS: Document the complete directory structure
+* If NOT EXISTS:
+
+  * Inform user: "Test directory does not exist in project root"
+  * Instruct: "Please generate the test directory before proceeding"
+  * DO NOT continue to next sections until test directory is created
+
+**5. In Scope**
+
+* Always include: "Event Handlers: For each event, a corresponding test file will be created"
+
+**6. Out of Scope**
+
+* Always include:
+
+  * Internal utility/helper functions
+  * End-to-end flows involving frontend or full stack
+  * Input schema validation (already enforced by Godspeed's event schema)
+
+**7. List of Test Files**
+
+**7.1 Context Gathering Process**
 For each test file (e.g., `test/eventHandlers/someFolder/anotherFolder/something.test.ts`):
+a) **Read Event File Summary**
 
-a) **Read Event File Summary**:
-   - Locate corresponding event file: `src/events/someFolder/anotherFolder/something.yaml`
-   - Extract and analyze the summary field
+* From `src/events/.../something.yaml`, extract `summary` field
+  b) **Analyze Event Handler Function**
+* Locate function via `fn` in the event file
+* Read corresponding code in `src/functions/.../something.ts`
+* Analyze logic and comments
+  c) **Check TRD Documentation**
+* Search `docs/TRD.md` for relevant info
 
-b) **Analyze Event Handler Function**:
-   - From event file, identify the `fn` field value (e.g., `someFolder.anotherFolder.something`)
-   - Read the handler function: `src/functions/someFolder/anotherFolder/something.ts`
-   - Analyze code logic and comments thoroughly
+*Important Notes:*
 
-c) **Check TRD Documentation**:
-   - Search `docs/TRD.md` for any details related to this event function
-   - Extract relevant context and requirements
-**Important Notes*:*
-- If there is a function for which you cant find any summary from event file , comments in the event handler function's code or anything in TRD regarding that function, and the code is the the only thing that tells you about the functions, then just write one test case for that file that will fail automatically with the description that tells the reason.
-- You dont have to write test cases for schema validation because events in godspeed already handles that.
+* If no useful summary, comments, or TRD context is available, create a failing placeholder test with explanation.
+* Do NOT write schema validation tests (Godspeed already validates input schemas)
 
-**7.2 Test Case Generation**:
-Using the gathered context, create test cases based on applicable scenarios from this framework:
+**7.2 Test Case Generation**
+Use these test categories where applicable:
 
-**Core Test Categories**:
-1. **Basic Functionality**: Successful execution, Data processing, Data transformation, Side effects
-2. **Resource Management (CRUD)**:
-   - Create: Success, Duplicates, Limits, Defaults
-   - Read: Exists, Not exists, Permissions
-   - Update: Success, Partial, Invalid, Locking
-   - Delete: Success, Not exists, Dependencies, Permissions
-3. **Error Handling**: Expected errors, Unexpected errors, Error propagation, Recovery
-4. **Security**: Authentication, Authorization, Data protection
-5. **Concurrency**: Thread safety, Race conditions, Deadlocks
-6. **Integration**: Dependencies, Module interactions
-7. **State Management**: Idempotency, State transitions
-8. **Asynchronous Operations**: Callbacks, Promises, Async/await
+* **Basic Functionality**: Successful execution, transformations, side effects
+* **Resource Management (CRUD)**
+* **Error Handling**
+* **Security**
+* **Concurrency**
+* **Integration**
+* **State Management**
+* **Asynchronous Operations**
 
-**7.3 Output Format**:
-For each test file, create a subsection with:
-- File name as header
-- List of test cases with brief descriptions
-- Rationale for why each test case is relevant to this specific event handler
+**7.3 Output Format**
+For each test file:
 
-**Quality Standards**:
-- Use QA judgment to identify critical test scenarios beyond the standard list
-- Ensure test cases are specific to the event handler's functionality
-- Include edge cases and boundary conditions where applicable
+* Header: file name
+* Test cases with descriptions
+* Rationale for inclusion
 
-**7. Godspeed specific instructions**
-- Ask questions from rag-node mcp server about godspeed and write it in this section
-- This sections will be used as a basic knowledge base about godspeed when writing test cases so it should provide general idea about godspeed
+**8. Godspeed specific instructions**
+
+* Ask questions from rag-node mcp server about Godspeed
+* Write answers here to serve as a foundational knowledge base when generating test cases
 
 **Output Location**: `docs/test/test-strategy.md`
 
