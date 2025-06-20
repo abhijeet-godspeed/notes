@@ -96,6 +96,10 @@ For each test file, create a subsection with:
 - Ensure test cases are specific to the event handler's functionality
 - Include edge cases and boundary conditions where applicable
 
+**7. Godspeed specific instructions**
+- Ask questions from rag-node mcp server about godspeed and write it in this section
+- This sections will be used as a basic knowledge base about godspeed when writing test cases so it should provide general idea about godspeed
+
 **Output Location**: `docs/test/test-strategy.md`
 
 ---
