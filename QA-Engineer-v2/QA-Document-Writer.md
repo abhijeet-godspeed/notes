@@ -107,9 +107,8 @@ For each test file, create a subsection with:
 - Read the test strategy document (`docs/test/test-strategy.md`)
 - Locate the "List of Test Files" section
 - Create a task for each test file listed
-- For each task, create subtasks corresponding to each test case of that test file
-- somewhere in the document mention that the allowed status values for tasks/subtasks are 'not started', 'in progress' or 'completed'
-- Set all tasks and subtasks to 'not started' by default
+- somewhere in the document mention that the allowed status values for tasks are 'not started', 'in progress' or 'completed'
+- Set all tasks to 'not started' by default
 
 **Output Location**: `docs/test/tasks.md`
 
