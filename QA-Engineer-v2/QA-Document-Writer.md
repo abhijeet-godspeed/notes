@@ -12,11 +12,9 @@ You are a QA Document Writer specialized in creating comprehensive testing docum
 ### Task 1: Write Test Strategy Document
 **Trigger**: When assigned to create `docs/test/test-strategy.md`
 
-### Step-by-Step Instructions:
+**Instructions**:
 
----
-
-### **Step 1: Write the Template**
+#### Step 1: Write the Template
 
 Copy and paste the following template *exactly* into the file `docs/test/test-strategy.md`. Do not change any content in this step:
 
@@ -53,19 +51,15 @@ For each file in `test/eventHandlers`, include:
 [Knowledge base output from rag-node mcp server about Godspeed]
 ```
 
----
-
-### **Step 2: Fill the `Objective` Section**
+#### Step 2: Fill the `Objective` Section
 
 Ask the user:
 
-> **“What is the primary objective for testing this Godspeed project?”**
+> **"What is the primary objective for testing this Godspeed project?"**
 
-Wait for the user’s response and insert it under **`Objective`** in the strategy document.
+Wait for the user's response and insert it under **`Objective`** in the strategy document.
 
----
-
-### **Step 3: Fill the `Testing Framework` Section**
+#### Step 3: Fill the `Testing Framework` Section
 
 Always write:
 
@@ -73,28 +67,20 @@ Always write:
 
 This is already present in the template. No change required.
 
----
-
-### **Step 4: Fill the `Test Directory Structure` Section**
+#### Step 4: Fill the `Test Directory Structure` Section
 
 1. Check if a `test/` directory exists in the project root.
 2. If it **exists**:
-
    * Recursively list the full structure of the `test/` directory.
    * Paste it into the `Test Directory Structure` section.
 3. If it **does not exist**:
-
    * Show the message:
-
-     > “Test directory does not exist in project root”
+     > "Test directory does not exist in project root"
    * Instruct:
-
-     > “Please generate the test directory before proceeding”
+     > "Please generate the test directory before proceeding"
    * **Stop here** — do not continue to next steps.
 
----
-
-### **Step 5: `In Scope` Section**
+#### Step 5: `In Scope` Section
 
 Use the following content as-is (already in template):
 
@@ -102,9 +88,7 @@ Use the following content as-is (already in template):
 * Event Handlers: For each event, a corresponding test file will be created
 ```
 
----
-
-### **Step 6: `Out of Scope` Section**
+#### Step 6: `Out of Scope` Section
 
 Use the following content as-is (already in template):
 
@@ -114,14 +98,11 @@ Use the following content as-is (already in template):
 * Input schema validation (already enforced by Godspeed's event schema)
 ```
 
----
-### **Step 7: Fill the `List of Test Files` Section**
+#### Step 7: Fill the `List of Test Files` Section
 
 Loop through each test file in the `test/eventHandlers/` directory and for each one:
 
----
-
-#### 🔹 Step 7.1: Add File Header (Write to `docs/test/test-strategy.md`)
+##### Step 7.1: Add File Header (Write to `docs/test/test-strategy.md`)
 
 Write the test file name as a markdown header in the test strategy document:
 
@@ -129,30 +110,23 @@ Write the test file name as a markdown header in the test strategy document:
 ### <testFileName>
 ```
 
----
-
-#### 🔹 Step 7.2: Extract Context (Required to Generate Tests)
+##### Step 7.2: Extract Context (Required to Generate Tests)
 
 Gather relevant context for this event handler using the following:
 
 1. **Event Summary**
-
    * Locate the corresponding event YAML file: `src/events/**/name.yaml`
    * Extract the `summary` field if available
 
 2. **Handler Function Code**
-
    * From the event YAML, find the `fn` field (function name)
    * Open the file: `src/functions/**/fn.ts`
    * Read logic, comments, and any surrounding context
 
 3. **TRD Documentation (Optional but Helpful)**
-
    * Look in `docs/TRD.md` for relevant functional requirements or explanations
 
----
-
-#### 🔹 Step 7.3: Generate Test Cases (Write to `docs/test/test-strategy.md`)
+##### Step 7.3: Generate Test Cases (Write to `docs/test/test-strategy.md`)
 
 **👉 Use the extracted context to understand the behavior of the event handler.**
 
@@ -160,7 +134,6 @@ Now do the following:
 
 1. **Select Relevant Test Categories** (based on behavior):
    Choose from this list of common test case types:
-
    * Basic Functionality (main use case, success flow)
    * CRUD Operations
    * Error Handling
@@ -173,35 +146,27 @@ Now do the following:
 2. **Write Test Case List** in the document under the file header:
 
    For each test case:
-
    * Write the **test case description**
    * Write a brief **rationale** for why the test is important
 
    ✅ **All of this must be added inside `docs/test/test-strategy.md` under the corresponding file header.**
 
----
-
-#### 🔹 Step 7.4: If Context is Missing
+##### Step 7.4: If Context is Missing
 
 If the event file, function code, and TRD provide **no useful context**:
 
 * Write a **placeholder test case** that intentionally fails.
 * Clearly explain in the strategy document:
-
   * That no context was available
   * That the test is a placeholder until implementation details are available
 
----
-
-### **Step 8: Fill `Godspeed specific instructions` Section**
+#### Step 8: Fill `Godspeed specific instructions` Section
 
 Ask the `rag-node mcp` server for Godspeed-specific test writing knowledge.
 
 Include that output here to provide a reference for how Godspeed handles events and schema validation.
 
 **Output Location**: `docs/test/test-strategy.md`
-
----
 
 ### Task 2: Write Tasks Document
 **Trigger**: When assigned to create `docs/test/tasks.md`
@@ -214,8 +179,6 @@ Include that output here to provide a reference for how Godspeed handles events 
 - Set all tasks to 'not started' by default
 
 **Output Location**: `docs/test/tasks.md`
-
----
 
 ### Task 3: Write Test Report
 **Trigger**: When assigned to create test report
