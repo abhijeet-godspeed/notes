@@ -23,30 +23,27 @@ Create a comprehensive test strategy document following this exact template stru
 **2. Testing Framework**
 Mocha + Chai
 
-**3. Test Coverage**
-\[User-provided test coverage % target]
-
-**4. Test Directory Structure**
+**3. Test Directory Structure**
 \[Actual structure of `test/` folder, or prompt to generate one if missing]
 
-**5. In Scope**
+**4. In Scope**
 
 * **Event Handlers**: For each event, a corresponding test file will be created
 
-**6. Out of Scope**
+**5. Out of Scope**
 
 * Internal utility/helper functions
 * End-to-end flows involving frontend or full stack
 * Input schema validation (already enforced by Godspeed's event schema)
 
-**7. List of Test Files**
+**6. List of Test Files**
 For each file in `test/eventHandlers`, include:
 
 * File name as header
 * List of test cases with brief descriptions
 * Rationale for why each test case is relevant to this specific event handler
 
-**8. Godspeed specific instructions**
+**7. Godspeed specific instructions**
 \[Knowledge base output from rag-node mcp server about Godspeed]
 
 #### Instructions to fill the above template:
@@ -60,12 +57,7 @@ For each file in `test/eventHandlers`, include:
 
 * Always specify: "Mocha + Chai"
 
-**3. Test Coverage**
-
-* Ask the user: "How much test coverage (in %) are you targeting for this project?"
-* Wait for user response and include it in section 3
-
-**4. Test Directory Structure**
+**3. Test Directory Structure**
 
 * Check if `test` directory exists in project root
 * If EXISTS: Document the complete directory structure
@@ -75,11 +67,11 @@ For each file in `test/eventHandlers`, include:
   * Instruct: "Please generate the test directory before proceeding"
   * DO NOT continue to next sections until test directory is created
 
-**5. In Scope**
+**4. In Scope**
 
 * Always include: "Event Handlers: For each event, a corresponding test file will be created"
 
-**6. Out of Scope**
+**5. Out of Scope**
 
 * Always include:
 
@@ -87,9 +79,9 @@ For each file in `test/eventHandlers`, include:
   * End-to-end flows involving frontend or full stack
   * Input schema validation (already enforced by Godspeed's event schema)
 
-**7. List of Test Files**
+**6. List of Test Files**
 
-**7.1 Context Gathering Process**
+**6.1 Context Gathering Process**
 For each test file (e.g., `test/eventHandlers/someFolder/anotherFolder/something.test.ts`):
 
 a) **Read Event File Summary**
@@ -108,7 +100,7 @@ c) **Check TRD Documentation**
 * If no useful summary, comments, or TRD context is available, create a failing placeholder test with explanation.
 * Do NOT write schema validation tests (Godspeed already validates input schemas)
 
-**7.2 Test Case Generation**
+**6.2 Test Case Generation**
 Use these test categories where applicable:
 
 * **Basic Functionality**: Successful execution, transformations, side effects
@@ -120,14 +112,14 @@ Use these test categories where applicable:
 * **State Management**
 * **Asynchronous Operations**
 
-**7.3 Output Format**
+**6.3 Output Format**
 For each test file:
 
 * Header: file name
 * Test cases with descriptions
 * Rationale for inclusion
 
-**8. Godspeed specific instructions**
+**7. Godspeed specific instructions**
 
 * Ask questions from rag-node mcp server about Godspeed
 * Write answers here to serve as a foundational knowledge base when generating test cases
