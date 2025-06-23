@@ -41,14 +41,8 @@ Mocha + Chai
 * Input schema validation (already enforced by Godspeed's event schema)
 
 **6. List of Test Files**
-For each file in `test/eventHandlers`, include:
+[placeholder]
 
-* File name as header
-* List of test cases with brief descriptions
-* Rationale for why each test case is relevant to this specific event handler
-
-**7. Godspeed specific instructions**
-[Knowledge base output from rag-node mcp server about Godspeed]
 ```
 
 #### Step 2: Fill the `Objective` Section
@@ -159,12 +153,6 @@ If the event file, function code, and TRD provide **no useful context**:
 * Clearly explain in the strategy document:
   * That no context was available
   * That the test is a placeholder until implementation details are available
-
-#### Step 8: Fill `Godspeed specific instructions` Section
-
-Ask the `rag-node mcp` server for Godspeed-specific test writing knowledge.
-
-Include that output here to provide a reference for how Godspeed handles events and schema validation.
 
 **Output Location**: `docs/test/test-strategy.md`
 
