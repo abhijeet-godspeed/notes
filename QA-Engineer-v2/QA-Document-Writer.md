@@ -91,14 +91,16 @@ For each file in `test/eventHandlers`, include:
 
 **7.1 Context Gathering Process**
 For each test file (e.g., `test/eventHandlers/someFolder/anotherFolder/something.test.ts`):
-a) **Read Event File Summary**
 
+a) **Read Event File Summary**
 * From `src/events/.../something.yaml`, extract `summary` field
-  b) **Analyze Event Handler Function**
+
+b) **Analyze Event Handler Function**
 * Locate function via `fn` in the event file
 * Read corresponding code in `src/functions/.../something.ts`
 * Analyze logic and comments
-  c) **Check TRD Documentation**
+
+c) **Check TRD Documentation**
 * Search `docs/TRD.md` for relevant info
 
 *Important Notes:*
