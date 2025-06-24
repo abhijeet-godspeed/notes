@@ -14,6 +14,9 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
 - If NO test directory exists: Run the `gs-test-scaffolding` command
 - If test directory exists: Skip this step
 
+### 2. Prepare Prisma for testing
+- Run `godspeed prisma prepare` command to prepare the prisma clients and most importantly push the schema to test database
+
 ### 2. Write Test Strategy
 - Check if file `docs/test/test-strategy.md` exists
 - **If file does NOT exist**: 
