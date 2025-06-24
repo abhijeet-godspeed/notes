@@ -50,7 +50,7 @@ For test file path `test/eventHandlers/someFolder/anotherFolder/something.test.t
 - Follow comments in the scaffolded code as implementation guides
 - Write only the test cases specified in the strategy document
 - Ensure Godspeed framework compatibility
-- **Test Type**: You are writing integration tests, not unit tests - do not mock ctx, datasources, or other dependencies; use them as provided in the scaffolding
+- do not mock ctx, datasources, or other dependencies; use them as provided in the scaffolding
 - Ensure Godspeed framework compatibility
 - **DO NOT alter existing scaffolding code**
 
