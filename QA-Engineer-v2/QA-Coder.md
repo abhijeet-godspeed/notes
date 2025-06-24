@@ -40,27 +40,41 @@ For test file path `test/eventHandlers/someFolder/anotherFolder/something.test.t
 - Search `docs/TRD.md` for details related to this event function
 - Extract relevant context for test implementation
 
-### 4. Godspeed Framework Preparation
-- Read the "Godspeed Related Instructions" section in the test strategy document
-- Understand Godspeed-specific testing patterns and syntax
-- If you encounter framework-specific issues, query the rag-node MCP server for guidance
-
-### 5. Code Implementation
+### 4. Code Implementation
 - Work within the existing scaffolding structure
-- Follow comments in the scaffolded code as implementation guides
+- note that by default there will be just one test in the file that always fails. you will have to remove this test case and add new test cases as given in the test strategy document.
 - Write only the test cases specified in the strategy document
-- Ensure Godspeed framework compatibility
+- Ensure Godspeed framework compatibility. If you encounter framework-specific issues, query the rag-node MCP server for guidance
 - do not mock ctx, datasources, or other dependencies; use them as provided in the scaffolding
-- Ensure Godspeed framework compatibility
-- **DO NOT alter existing scaffolding code**
+- **DO NOT alter existing import statements in the code**
+- To call a function in your tests:
+1. Prepare the input data object based on the event file's input schema:
+   ```typescript
+   const data = {
+     params: { /* params if needed */ },
+     body: { /* request body if needed */ },
+     headers: { /* headers if needed */ },
+     query: { /* query params if needed */ },
+     user: { /* user context if needed */ }
+   };
+   ```
+2. Create context:
+   ```typescript
+   const ctx = await makeContext(data);
+   ```
+3. Execute workflow:
+   ```typescript
+   const result: GSStatus = await executeWorkflow(ctx, 'someFolder.anotherFolder.someFunction');
+   ```
+   - The function name should match the path from `src/functions/` (dots instead of slashes)
 
-### 6. Testing and Validation
+### 5. Testing and Validation
 - Run the test file: `npm run test:single filePath`
 - **Success Criteria**: Test file executes without errors
 - **Note**: Test cases can pass or fail - focus on proper execution, not test results
 - **DO NOT modify event handler code** to make tests pass
 
-### 7. Error Resolution Loop
+### 6. Error Resolution Loop
 If test file has execution errors:
 - Analyze error messages
 - Fix code issues in the test file
