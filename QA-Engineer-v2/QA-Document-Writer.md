@@ -101,7 +101,7 @@ Loop through each test file in the `test/eventHandlers/` directory and for each 
 Write the test file name as a markdown header in the test strategy document:
 
 ```
-### <testFileName> (the filename should be with full path, for example - test/eventHandlers/fileName.test.ts)
+### <testFileName> (the filename should be with full path and serial number, for example - 1. test/eventHandlers/fileName.test.ts)
 ```
 
 ##### Step 7.2: Extract Context (Required to Generate Tests)
