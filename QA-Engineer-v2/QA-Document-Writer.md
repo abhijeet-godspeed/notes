@@ -131,17 +131,97 @@ Gather relevant context for this event handler using the following:
 Now do the following:
 
 1. **Select Relevant Test Categories** (based on behavior):
-   Choose from this list of common test case types:
-   * Basic Functionality (main use case, success flow)
-   * CRUD Operations
-   * Schema Relationships
-   * Error Handling
-   * Response Validation
-   * Security
-   * Concurrency
-   * Integration
-   * State Management
-   * Asynchronous Operations
+
+```
+#### 1. **Core Functionality**
+
+* **Main Success Path (Happy Path)**
+  *Test the primary, expected flow under normal inputs*
+  *Rationale: Ensures core business logic behaves as intended.*
+
+* **Edge Case Handling**
+  *Test input/output boundaries (e.g. 0, empty, null, extremely large)*
+  *Rationale: Detects off-by-one, null pointer, or size-related logic bugs.*
+
+#### 2. **Data-Oriented Behavior**
+
+* **CRUD Behavior Validation**
+  *Test create, read, update, delete scenarios in storage layer*
+  *Rationale: Confirms the event handler performs correct operations on DB/document stores.*
+
+* **Data Integrity & Consistency**
+  *Ensure data relationships, foreign keys, denormalization or versioning is upheld post-operation*
+  *Rationale: Prevents logic that corrupts persistent state.*
+
+* **Idempotency & Duplicate Request Handling**
+  *Sending the same event twice should not cause inconsistent side effects*
+  *Rationale: Critical for reliability in distributed event-based systems.*
+
+#### 3. **Output Validation**
+
+* **Response Format & Semantics**
+  *Verify returned payload shape, HTTP status (if applicable), and correctness of keys and messages*
+  *Rationale: Avoids silent API contract breakages.*
+
+#### 4. **Error Handling**
+
+* **Business Logic Errors**
+  *Ensure proper rejection on known conditions like insufficient funds, invalid state, or permissions*
+  *Rationale: Confirms business errors are surfaced clearly and handled correctly.*
+
+* **Unhandled Exception Paths**
+  *Test what happens when an internal dependency fails or throws*
+  *Rationale: Guarantees resilience and observability through proper logging and fallbacks.*
+
+#### 5. **Security and Access Control**
+
+* **Authentication Validation**
+  *Ensure only authenticated users can invoke handler (if relevant)*
+  *Rationale: Protects against unauthorized access.*
+
+* **Authorization and Role Checks**
+  *Test that only the correct users can perform restricted actions*
+  *Rationale: Prevents privilege escalation and access abuse.*
+
+* **Sensitive Data Exposure**
+  *Ensure no PII, secrets, or sensitive fields are leaked in responses or logs*
+  *Rationale: Required for compliance and user safety.*
+
+#### 6. **Concurrency and Transactions**
+
+* **Concurrent Event Handling**
+  *Simulate simultaneous events that target the same resource*
+  *Rationale: Tests locking, queuing, or race conditions in handlers.*
+
+* **Atomicity and Rollback Behavior**
+  *If part of the logic fails, ensure partial updates are undone or avoided*
+  *Rationale: Critical for multi-step, transactional operations.*
+
+#### 7. **Integration and External Systems**
+
+* **External API Calls**
+  *Mock and test successful and failed downstream service calls (e.g., payment, email)*
+  *Rationale: Ensures graceful degradation and retry logic.*
+
+* **Service Dependency Availability**
+  *Behavior when DB, Redis, or third-party service is down or slow*
+  *Rationale: Validates robustness and timeout handling.*
+
+* **Event Chaining / Event Emission**
+  *Verify emitted events (if any) match expectations*
+  *Rationale: Ensures correct propagation of side effects in event-driven architecture.*
+
+#### 8. **Timing and Async Behavior**
+
+* **Delayed Effects or Timers**
+  *Test deferred actions (e.g., retry queues, async jobs)*
+  *Rationale: Ensures long-lived workflows execute predictably.*
+
+* **Timeouts and Retry Logic**
+  *Force failure scenarios to test retry backoffs or handler timeout*
+  *Rationale: Needed to prevent infinite retries or dropped tasks.*
+
+```
 
 2. **Write Test Case List** in the document under the file header:
 
