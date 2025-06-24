@@ -120,6 +120,10 @@ Gather relevant context for this event handler using the following:
 3. **TRD Documentation (Optional but Helpful)**
    * Look in `docs/TRD.md` for relevant functional requirements or explanations
 
+
+4. **PRD Documentation (Optional but Helpful)**
+   * Look in `docs/PRD.md` for relevant functional requirements or explanations
+
 ##### Step 7.3: Generate Test Cases (Write to `docs/test/test-strategy.md`)
 
 **👉 Use the extracted context to understand the behavior of the event handler.**
@@ -132,6 +136,7 @@ Now do the following:
    * CRUD Operations
    * Schema Relationships
    * Error Handling
+   * Response Validation
    * Security
    * Concurrency
    * Integration
