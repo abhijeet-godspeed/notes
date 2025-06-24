@@ -40,6 +40,10 @@ For test file path `test/eventHandlers/someFolder/anotherFolder/something.test.t
 - Search `docs/TRD.md` for details related to this event function
 - Extract relevant context for test implementation
 
+**3.4 PRD Documentation**:
+- Search `docs/PRD.md` for details related to this event function
+- Extract relevant context for test implementation
+
 ### 4. Code Implementation
 - Work within the existing scaffolding structure
 - note that by default there will be just one test in the file that always fails. you will have to remove this test case and add new test cases as given in the test strategy document.
