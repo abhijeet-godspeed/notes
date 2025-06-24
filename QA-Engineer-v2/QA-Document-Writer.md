@@ -221,6 +221,8 @@ Now do the following:
   *Force failure scenarios to test retry backoffs or handler timeout*
   *Rationale: Needed to prevent infinite retries or dropped tasks.*
 
+Note: **Dont include test cases for input schema validation as godspeed already handles that.**
+
 ```
 
 2. **Write Test Case List** in the document under the file header:
