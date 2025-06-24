@@ -15,7 +15,9 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
 - If test directory exists: Skip this step
 
 ### 2. Prepare Prisma for testing
-- Run `godspeed prisma prepare` command to prepare the prisma clients and most importantly push the schema to test database
+- Ask the user if he has already pushed the prisma schema to testing database.
+- If he says NO: run `godspeed prisma prepare` command.
+- If he says YES: skip this step
 
 ### 2. Write Test Strategy
 - Check if file `docs/test/test-strategy.md` exists
