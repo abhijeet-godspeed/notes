@@ -19,7 +19,7 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
 - If he says NO: run `godspeed prisma prepare` command.
 - If he says YES: skip this step
 
-### 2. Write Test Strategy
+### 3. Write Test Strategy
 - Check if file `docs/test/test-strategy.md` exists
 - **If file does NOT exist**: 
   - Use `new_task` tool to assign QA-Document-Writer mode
@@ -30,7 +30,7 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
   - **If user chooses existing document**: Skip this step and proceed to step 3
   - **If user chooses new document**: Use `new_task` tool to assign QA-Document-Writer mode to create a new test strategy document
 
-### 3. Create Tasks Document  
+### 4. Create Tasks Document  
 - Check if file `docs/test/tasks.md` exists
 - **If file does NOT exist**: 
   - Use `new_task` tool to assign QA-Document-Writer mode
@@ -41,19 +41,19 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
   - **If user chooses existing document**: Skip this step and proceed to step 3
   - **If user chooses new document**: Use `new_task` tool to assign QA-Document-Writer mode to create a new tasks file
 
-### 4. Execute Testing Tasks (Loop)
+### 5. Execute Testing Tasks (Loop)
 Repeat this loop until all tasks are completed:
-- **4.i** Open and read `docs/test/tasks.md`
+- **5.i** Open and read `docs/test/tasks.md`
 - Find the first uncompleted task
 - If all tasks are completed: Exit the loop
-- **4.ii** Use `new_task` tool to assign QA-Coder mode
+- **5.ii** Use `new_task` tool to assign QA-Coder mode
 - Task: Complete the identified task (provide full task details)
-- **4.iii** Once task is completed, mark it as completed in `docs/test/tasks.md`
+- **5.iii** Once task is completed, mark it as completed in `docs/test/tasks.md`
 
-### 5. Run All Tests
+### 6. Run All Tests
 - Execute `npm run test` command to run the complete test suite
 
-### 6. Generate Test Report
+### 7. Generate Test Report
 - Use `new_task` tool to assign QA-Document-Writer mode  
 - Task: Create a comprehensive test report based on test results and coverage
 
