@@ -130,6 +130,7 @@ Now do the following:
    Choose from this list of common test case types:
    * Basic Functionality (main use case, success flow)
    * CRUD Operations
+   * Schema Relationships
    * Error Handling
    * Security
    * Concurrency
