@@ -96,15 +96,7 @@ Use the following content as-is (already in template):
 
 Loop through each test file in the `test/eventHandlers/` directory and for each one:
 
-##### Step 7.1: Add File Header (Write to `docs/test/test-strategy.md`)
-
-Write the test file name as a markdown header in the test strategy document:
-
-```
-### <testFileName> (the filename should be with full path and serial number, for example - 1. test/eventHandlers/fileName.test.ts)
-```
-
-##### Step 7.2: Extract Context (Required to Generate Tests)
+##### Step 7.1: Extract Context (Required to Generate Tests)
 
 Gather relevant context for this event handler using the following:
 
@@ -124,13 +116,13 @@ Gather relevant context for this event handler using the following:
 4. **PRD Documentation (Optional but Helpful)**
    * Look in `docs/PRD.md` for relevant functional requirements or explanations
 
-##### Step 7.3: Generate Test Cases (Write to `docs/test/test-strategy.md`)
+##### Step 7.2: Generate Test Cases (Write to `docs/test/test-strategy.md`)
 
 **👉 Use the extracted context to understand the behavior of the event handler.**
 
 Now do the following:
 
-1. **Select Relevant Test Categories** (based on behavior):
+**Look at the following list of test categories and find out the relevant categories for this event handler based on the context extracted in the last step. write test cases to cover these relevant categories**:
 
 ```
 #### 1. **Core Functionality**
@@ -225,13 +217,19 @@ Now do the following:
 
 ```
 
-2. **Write Test Case List** in the document under the file header:
+##### Step 7.3: Save Test Cases in the file(Write to `docs/test/test-strategy.md`)
 
-   For each test case:
-   * Write the header for test file with **test case description** (example, test case 1: some test description)
-   * Write a brief **rationale** for why the test is important
+now that you have generated the test cases, its time to include them in test strategy in a structured way. take the following example as reference -
 
-   ✅ **All of this must be added inside `docs/test/test-strategy.md` under the corresponding file header.**
+```
+### <serial number for test file><testFileName(the filename should be with full path, for example - test/eventHandlers/fileName.test.ts)> 
+
+#### Test Case <serial number of test case for current test file>:
+     * Description: <test case description>
+     * Rationale: <Write a brief rationale for why the test is important>
+```
+
+**note that this is only and example and you have to use real content here that you generated in last step. treat `<>` as placeholder.**
 
 ##### Step 7.4: If Context is Missing
 
