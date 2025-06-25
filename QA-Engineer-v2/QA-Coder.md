@@ -45,32 +45,47 @@ For test file path `test/eventHandlers/someFolder/anotherFolder/something.test.t
 - Extract relevant context for test implementation
 
 ### 4. Code Implementation
+
+**Framework and Structure Guidelines:**
 - Work within the existing scaffolding structure
-- note that by default there will be just one test in the file that always fails. you will have to remove this test case and add new test cases as given in the test strategy document.
-- Write only the test cases specified in the strategy document
-- Ensure Godspeed framework compatibility. If you encounter framework-specific issues, query the rag-node MCP server for guidance
-- do not mock ctx, datasources, or other dependencies; use them as provided in the scaffolding
-- **DO NOT remove the existing import statements in the code. You can fix the paths of the import statements if they are incorrect but dont remove them completely**
-- To call a function in your tests:
-1. Prepare the input data object based on the event file's input schema:
+- Remove the default failing test case and implement only the test cases specified in the strategy document
+- Maintain Godspeed framework compatibility - query the rag-node MCP server for framework-specific guidance when needed
+- Preserve all existing import statements (fix paths if incorrect, but do not remove imports entirely)
+
+**Function Execution Pattern:**
+To call functions in your tests, follow this standard approach:
+
+1. **Prepare Input Data:** Structure your input based on the event file's input schema:
    ```typescript
    const data = {
-     params: { /* params if needed */ },
-     body: { /* request body if needed */ },
-     headers: { /* headers if needed */ },
-     query: { /* query params if needed */ },
-     user: { /* user context if needed */ }
+     params: { /* route parameters */ },
+     body: { /* request body */ },
+     headers: { /* HTTP headers */ },
+     query: { /* query parameters */ },
+     user: { /* user context */ }
    };
    ```
-2. Create context:
+
+2. **Create Context:**
    ```typescript
    const ctx = await makeContext(data);
    ```
-3. Execute workflow:
+
+3. **Execute Workflow:**
    ```typescript
    const result: GSStatus = await executeWorkflow(ctx, 'someFolder.anotherFolder.someFunction');
    ```
-   - The function name should match the path from `src/functions/` (dots instead of slashes)
+   *Note: Function path should match the `src/functions/` directory structure using dot notation instead of slashes*
+
+**Testing Flexibility:**
+- Do not mock `ctx`, `datasources`, or other dependencies - use them as provided in the scaffolding
+
+**Database Handling:**
+- **Access:** Use the database through `ctx` that can be created using `makeContext()`
+- **Cleanup:** Clean relevant database tables before each test using `beforeEach()`
+- **Operations:** Freely perform database operations as needed (e.g., create test users for post creation tests)
+- **Verification:** Use Prisma directly from `ctx` to verify database changes
+- **Support:** Query the rag-node MCP server directly for specific Prisma datasource usage guidance
 
 ### 5. Testing and Validation
 - Run the test file: `npm run test:single filePath`
