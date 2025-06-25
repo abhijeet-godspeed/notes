@@ -77,8 +77,20 @@ To call functions in your tests, follow this standard approach:
    ```
    *Note: Function path should match the `src/functions/` directory structure using dot notation instead of slashes*
 
-**Testing Flexibility:**
-- Do not mock `ctx`, `datasources`, or other dependencies - use them as provided in the scaffolding
+**Datasource Mocking:**
+- for integration tests, you shouldnt mock the datasources and use it as it is from the ctx.
+- If for unit test cases, it is required to mock any function of the datasource by overwriting it, you must fix this overwriting at the end of that test case. Here is an example of that:
+
+```
+// Stub the prisma.task.create method to throw an error
+    const originalCreate = ctx.datasources.schema.client.task.create;
+    (ctx.datasources.schema.client.task as any).create = async () => {
+      throw new Error('Simulated database error');
+    };
+
+// Restore the original method after the mocked method is used
+    (ctx.datasources.schema.client.task as any).create = originalCreate;
+```
 
 **Database Handling:**
 - **Access:** Use the database through `ctx` that can be created using `makeContext()`
