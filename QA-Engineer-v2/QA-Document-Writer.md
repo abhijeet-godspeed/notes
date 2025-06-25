@@ -258,7 +258,7 @@ If the event file, function code, and TRD provide **no useful context**:
 **Trigger**: When assigned to create test report
 
 **Instructions**:
-1. Execute all test cases using `npm run test` command
+1. Execute all test cases using `npm run test:coverage` command. this command will run the test cases with nyc to show coverage also.
 2. Ensure test compilation completes successfully
 3. Create a comprehensive markdown test report
 
