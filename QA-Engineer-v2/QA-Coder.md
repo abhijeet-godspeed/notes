@@ -50,7 +50,7 @@ For test file path `test/eventHandlers/someFolder/anotherFolder/something.test.t
 - Write only the test cases specified in the strategy document
 - Ensure Godspeed framework compatibility. If you encounter framework-specific issues, query the rag-node MCP server for guidance
 - do not mock ctx, datasources, or other dependencies; use them as provided in the scaffolding
-- **DO NOT alter existing import statements in the code**
+- **DO NOT remove the existing import statements in the code. You can fix the paths of the import statements if they are incorrect but dont remove them completely**
 - To call a function in your tests:
 1. Prepare the input data object based on the event file's input schema:
    ```typescript
