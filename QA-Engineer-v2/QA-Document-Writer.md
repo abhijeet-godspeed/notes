@@ -228,7 +228,7 @@ Now do the following:
 2. **Write Test Case List** in the document under the file header:
 
    For each test case:
-   * Write the **test case description**
+   * Write the header for test file with **test case description** (example, test case 1: test description)
    * Write a brief **rationale** for why the test is important
 
    ✅ **All of this must be added inside `docs/test/test-strategy.md` under the corresponding file header.**
