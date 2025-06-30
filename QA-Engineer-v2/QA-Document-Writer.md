@@ -254,19 +254,18 @@ Take the following format as reference:
 
 **Description**: <Brief one-line description>
 
+**Key Verification Points**:
+- <Specific things to verify in the test>
+- <Response format validations>
+- <Error handling scenarios>
+
 **Detailed Implementation Guide**:
-- **Setup**: <Detailed setup steps including database states, mock configurations, etc.>
+- **Setup**: <Detailed setup steps including mock configurations, etc.>
 - **Input Data**: <Exact input payload/parameters with sample values>
 - **Execution Steps**: <Step-by-step execution flow>
 - **Mocking Requirements**: <Specific mocks needed with their expected behaviors>
 - **Expected Assertions**: <Detailed list of assertions to verify>
 - **Cleanup**: <Any cleanup steps required>
-
-**Key Verification Points**:
-- <Specific things to verify in the test>
-- <Database state changes to check>
-- <Response format validations>
-- <Error handling scenarios>
 
 **Assumptions Made** (if any):
 - <List any assumptions about the implementation>
