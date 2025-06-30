@@ -112,7 +112,6 @@ Gather relevant context for this event handler using the following:
 3. **TRD Documentation (Optional but Helpful)**
    * Look in `docs/TRD.md` for relevant functional requirements or explanations
 
-
 4. **PRD Documentation (Optional but Helpful)**
    * Look in `docs/PRD.md` for relevant functional requirements or explanations
 
@@ -217,27 +216,71 @@ Now do the following:
 
 ```
 
-##### Step 7.3: Save Test Cases in the file(Write to `docs/test/test-strategy.md`)
+##### Step 7.3: Save Test Cases in the file (Write to `docs/test/test-strategy.md`)
 
-now that you have generated the test cases, its time to include them in test strategy in a structured way. take the following example as reference -
+Now that you have generated the test cases, it's time to include them in test strategy in a structured way. For each test case, provide **comprehensive implementation details** that include:
+
+1. **Detailed Test Implementation Guide**: Exact steps to implement the test
+2. **Input Data Specifications**: Precise input values, mock data, and test fixtures
+3. **Expected Behavior**: Detailed expected outcomes, return values, and side effects
+4. **Mocking Strategy**: Specific services, dependencies, or external calls to mock and how
+5. **Assertion Details**: Exact assertions to make (response structure, status codes, database state changes)
+6. **Setup and Teardown**: Any required test setup or cleanup procedures
+
+Take the following format as reference:
 
 ```
-### <serial number for test file><testFileName(the filename should be with full path, for example - test/eventHandlers/fileName.test.ts)> 
+### <serial number for test file>. <testFileName (the filename should be with full path, for example - test/eventHandlers/fileName.test.ts)>
 
-#### Test Case <serial number of test case for current test file>:
-     * Description: <test case description>
+#### Test Case <serial number of test case for current test file>: <Test Case Name>
+
+**Description**: <Brief one-line description>
+
+**Detailed Implementation Guide**:
+- **Setup**: <Detailed setup steps including database states, mock configurations, etc.>
+- **Input Data**: <Exact input payload/parameters with sample values>
+- **Execution Steps**: <Step-by-step execution flow>
+- **Mocking Requirements**: <Specific mocks needed with their expected behaviors>
+- **Expected Assertions**: <Detailed list of assertions to verify>
+- **Cleanup**: <Any cleanup steps required>
+
+**Key Verification Points**:
+- <Specific things to verify in the test>
+- <Database state changes to check>
+- <Response format validations>
+- <Error handling scenarios>
+
+**Assumptions Made** (if any):
+- <List any assumptions about the implementation>
+- <Missing context that needs clarification>
 ```
 
-**note that this is only and example and you have to use real content here that you generated in last step. treat `<>` as placeholder.**
+**CRITICAL REQUIREMENTS for Test Case Descriptions**:
+1. **Be Extremely Detailed**: Each test case should provide enough detail that a developer can implement it without making assumptions
+2. **Include Exact Values**: Provide specific input values, not just types
+3. **Specify Mock Behaviors**: Detail exactly what mocks should return and under what conditions
+4. **List All Assertions**: Specify every assertion that should be made
+5. **Address Edge Cases**: Include boundary conditions and error scenarios
+6. **Provide Code Structure**: Give a skeleton of how the test should be organized
+7. **Document Setup/Teardown**: Include any required test environment setup
+
+**If Context is Insufficient**:
+If you cannot provide detailed implementation guidance due to missing context, you MUST:
+1. Clearly state what specific information is missing
+2. List the exact files/documentation that need to be reviewed
+3. Provide a detailed placeholder that explains what needs to be determined
+4. Include all assumptions being made and mark them clearly
 
 ##### Step 7.4: If Context is Missing
 
 If the event file, function code, and TRD provide **no useful context**:
 
-* Write a **placeholder test case** that intentionally fails.
-* Clearly explain in the strategy document:
-  * That no context was available
-  * That the test is a placeholder until implementation details are available
+* Write a **detailed placeholder test case** that explains exactly what information is needed
+* Clearly document in the strategy document:
+  * What specific context is missing
+  * Which files need to be reviewed
+  * What assumptions are being made
+  * What questions need to be answered before implementation
 
 **Output Location**: `docs/test/test-strategy.md`
 
@@ -287,3 +330,4 @@ If the event file, function code, and TRD provide **no useful context**:
 - Content follows task-specific guidelines
 - Document is complete and ready for use by other team members
 - Format is consistent and professional
+- Test cases include comprehensive implementation details that eliminate guesswork
