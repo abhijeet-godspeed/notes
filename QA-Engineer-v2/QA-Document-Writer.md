@@ -226,7 +226,6 @@ now that you have generated the test cases, its time to include them in test str
 
 #### Test Case <serial number of test case for current test file>:
      * Description: <test case description>
-     * Rationale: <Write a brief rationale for why the test is important>
 ```
 
 **note that this is only and example and you have to use real content here that you generated in last step. treat `<>` as placeholder.**
