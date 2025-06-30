@@ -124,96 +124,130 @@ Now do the following:
 **Look at the following list of test categories and find out the relevant categories for this event handler based on the context extracted in the last step. write test cases to cover these relevant categories**:
 
 ```
-#### 1. **Core Functionality**
-
+## 1. **Core Functionality**
 * **Main Success Path (Happy Path)**
-  *Test the primary, expected flow under normal inputs*
-  *Rationale: Ensures core business logic behaves as intended.*
+  * Test the primary, expected flow with valid inputs and mocked dependencies returning success
+  * Rationale: Ensures core business logic behaves as intended when all conditions are met.
 
 * **Edge Case Handling**
-  *Test input/output boundaries (e.g. 0, empty, null, extremely large)*
-  *Rationale: Detects off-by-one, null pointer, or size-related logic bugs.*
+  * Test boundary conditions for inputs (e.g., 0, empty strings, null, undefined, extremely large numbers)
+  * Test with minimum and maximum allowed values
+  * Rationale: Detects off-by-one errors, null pointer exceptions, and boundary-related logic bugs.
 
-#### 2. **Data-Oriented Behavior**
+## 2. **Business Logic Validation**
+* **Conditional Logic Branches**
+  * Test all if/else conditions and switch cases within the handler
+  * Test complex boolean expressions and nested conditions
+  * Rationale: Ensures all code paths are executed and logical branches work correctly.
 
-* **CRUD Behavior Validation**
-  *Test create, read, update, delete scenarios in storage layer*
-  *Rationale: Confirms the event handler performs correct operations on DB/document stores.*
+* **Data Transformation and Processing**
+  * Test data mapping, filtering, sorting, and transformation operations
+  * Test calculations, aggregations, and data formatting logic
+  * Rationale: Validates that data manipulation within the handler produces expected results.
 
-* **Data Integrity & Consistency**
-  *Ensure data relationships, foreign keys, denormalization or versioning is upheld post-operation*
-  *Rationale: Prevents logic that corrupts persistent state.*
+* **Business Rule Enforcement**
+  * Test validation of business rules (e.g., age restrictions, quantity limits, status transitions)
+  * Test rejection scenarios when business conditions are not met
+  * Rationale: Ensures business logic is correctly implemented and enforced.
 
-* **Idempotency & Duplicate Request Handling**
-  *Sending the same event twice should not cause inconsistent side effects*
-  *Rationale: Critical for reliability in distributed event-based systems.*
+## 3. **Mocked Dependency Interactions**
+* **Successful Dependency Calls**
+  * Mock external services, databases, and utility functions to return successful responses
+  * Verify correct parameters are passed to mocked dependencies
+  * Rationale: Ensures the handler correctly interacts with external dependencies under normal conditions.
 
-#### 3. **Output Validation**
+* **Failed Dependency Scenarios**
+  * Mock dependencies to throw errors or return failure responses
+  * Test different types of failures (network errors, validation errors, timeout errors)
+  * Rationale: Validates error handling and resilience when dependencies fail.
 
-* **Response Format & Semantics**
-  *Verify returned payload shape, HTTP status (if applicable), and correctness of keys and messages*
-  *Rationale: Avoids silent API contract breakages.*
+* **Dependency Call Patterns**
+  * Verify the correct sequence and frequency of dependency calls
+  * Test scenarios where dependencies should not be called based on conditions
+  * Rationale: Ensures efficient and correct interaction patterns with external services.
 
-#### 4. **Error Handling**
-
+## 4. **Error Handling and Exception Management**
 * **Business Logic Errors**
-  *Ensure proper rejection on known conditions like insufficient funds, invalid state, or permissions*
-  *Rationale: Confirms business errors are surfaced clearly and handled correctly.*
+  * Test proper error creation and throwing for known business error conditions
+  * Verify error messages, codes, and structure are correct
+  * Rationale: Ensures business errors are properly identified and formatted.
 
-* **Unhandled Exception Paths**
-  *Test what happens when an internal dependency fails or throws*
-  *Rationale: Guarantees resilience and observability through proper logging and fallbacks.*
+* **Exception Propagation**
+  * Test that unhandled exceptions from mocked dependencies are properly caught or propagated
+  * Test custom exception handling logic within the handler
+  * Rationale: Validates that the handler gracefully manages unexpected errors.
 
-#### 5. **Security and Access Control**
+* **Error Recovery Logic**
+  * Test fallback mechanisms and alternative execution paths when errors occur
+  * Test retry logic and circuit breaker patterns (if implemented)
+  * Rationale: Ensures the handler can recover from errors when possible.
 
-* **Authentication Validation**
-  *Ensure only authenticated users can invoke handler (if relevant)*
-  *Rationale: Protects against unauthorized access.*
+## 5. **Output Validation**
+* **Response Structure and Format**
+  * Verify returned payload structure, data types, and required fields
+  * Test different response formats based on input conditions
+  * Rationale: Ensures consistent and correct response formatting.
 
-* **Authorization and Role Checks**
-  *Test that only the correct users can perform restricted actions*
-  *Rationale: Prevents privilege escalation and access abuse.*
+* **Response Content Validation**
+  * Test that response data matches expected values based on input and processing
+  * Verify calculated fields, transformed data, and derived values
+  * Rationale: Confirms the handler produces semantically correct outputs.
 
-* **Sensitive Data Exposure**
-  *Ensure no PII, secrets, or sensitive fields are leaked in responses or logs*
-  *Rationale: Required for compliance and user safety.*
+* **Status and Metadata**
+  * Test HTTP status codes (if applicable), response headers, and metadata
+  * Verify success and error status indicators in responses
+  * Rationale: Ensures proper communication of operation results.
 
-#### 6. **Concurrency and Transactions**
+## 6. **State Management and Side Effects**
+* **Local State Handling**
+  * Test manipulation of local variables and temporary state within the handler
+  * Test state transitions and updates during processing
+  * Rationale: Validates correct state management within the handler scope.
 
-* **Concurrent Event Handling**
-  *Simulate simultaneous events that target the same resource*
-  *Rationale: Tests locking, queuing, or race conditions in handlers.*
+* **Side Effect Verification**
+  * Verify that expected side effects occur (e.g., logging, event emission, cache updates)
+  * Test that side effects are properly mocked and their invocation is verified
+  * Rationale: Ensures all intended side effects are triggered correctly.
 
-* **Atomicity and Rollback Behavior**
-  *If part of the logic fails, ensure partial updates are undone or avoided*
-  *Rationale: Critical for multi-step, transactional operations.*
+## 7. **Security and Access Control Logic**
+* **Permission and Role Validation**
+  * Test authorization logic within the handler (with mocked auth services)
+  * Test different user roles and permission scenarios
+  * Rationale: Validates that access control logic is correctly implemented.
 
-#### 7. **Integration and External Systems**
+* **Data Sanitization and Validation**
+  * Test input sanitization and validation logic within the handler
+  * Test protection against injection attacks and malicious inputs
+  * Rationale: Ensures security measures are properly implemented.
 
-* **External API Calls**
-  *Mock and test successful and failed downstream service calls (e.g., payment, email)*
-  *Rationale: Ensures graceful degradation and retry logic.*
+* **Sensitive Data Handling**
+  * Test that sensitive data is properly masked, encrypted, or excluded from responses
+  * Verify that secrets and PII are handled securely in processing logic
+  * Rationale: Validates proper security practices in data handling.
 
-* **Service Dependency Availability**
-  *Behavior when DB, Redis, or third-party service is down or slow*
-  *Rationale: Validates robustness and timeout handling.*
+## 8. **Asynchronous Logic and Promises**
+* **Promise Resolution Handling**
+  * Test async/await patterns and promise chains within the handler
+  * Test proper handling of resolved and rejected promises from mocked dependencies
+  * Rationale: Ensures correct asynchronous flow and error handling.
 
-* **Event Chaining / Event Emission**
-  *Verify emitted events (if any) match expectations*
-  *Rationale: Ensures correct propagation of side effects in event-driven architecture.*
+* **Concurrent Operation Logic**
+  * Test parallel processing logic (e.g., Promise.all, Promise.allSettled)
+  * Test handling of race conditions in async operations
+  * Rationale: Validates correct implementation of concurrent operations.
 
-#### 8. **Timing and Async Behavior**
+## 9. **Configuration and Environment Logic**
+* **Configuration-Based Behavior**
+  * Test different code paths based on configuration values (with mocked config)
+  * Test feature flags and environment-specific logic
+  * Rationale: Ensures the handler behaves correctly across different configurations.
 
-* **Delayed Effects or Timers**
-  *Test deferred actions (e.g., retry queues, async jobs)*
-  *Rationale: Ensures long-lived workflows execute predictably.*
+* **Dynamic Behavior Testing**
+  * Test conditional logic that depends on runtime configuration
+  * Test adaptive behavior based on system state or feature toggles
+  * Rationale: Validates flexible and configurable handler behavior.
 
-* **Timeouts and Retry Logic**
-  *Force failure scenarios to test retry backoffs or handler timeout*
-  *Rationale: Needed to prevent infinite retries or dropped tasks.*
-
-**Note**: **Dont include test cases for input schema validation as godspeed already handles that.**
-
+**Note**: **Don't include test cases for input schema validation as Godspeed already handles that. All external dependencies (databases, APIs, utility functions, etc.) should be mocked to isolate the unit under test.**
 ```
 
 ##### Step 7.3: Save Test Cases in the file (Write to `docs/test/test-strategy.md`)
