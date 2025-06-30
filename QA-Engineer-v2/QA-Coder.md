@@ -108,13 +108,13 @@ To call functions in your tests, follow this standard approach:
 
 * Write two types of assertions:
 
-  1. **Chai assertions** to check output and error values:
+  1. **Chai assertions** to check output and error values. Example:
 
      ```ts
      expect(result.statusCode).to.equal(200);
      expect(result.body).to.deep.equal(expectedOutput);
      ```
-  2. **Sinon assertions** to validate interactions with stubs:
+  2. **Sinon assertions** to validate interactions with stubs. Example:
 
      ```ts
      sinon.assert.calledOnceWithExactly(stub, expectedArgs);
