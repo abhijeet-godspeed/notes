@@ -27,20 +27,17 @@ Copy and paste the following template *exactly* into the file `docs/test/test-st
 **2. Testing Framework**
 Mocha + Chai
 
-**3. Test Directory Structure**
-[placeholder]
+**3. In Scope**
 
-**4. In Scope**
+* Event Handlers: For each event, a corresponding test file will be created
 
-* **Event Handlers**: For each event, a corresponding test file will be created
-
-**5. Out of Scope**
+**4. Out of Scope**
 
 * Internal utility/helper functions
 * End-to-end flows involving frontend or full stack
 * Input schema validation (already enforced by Godspeed's event schema)
 
-**6. List of Test Files**
+**5. List of Test Files**
 [placeholder]
 
 ```
@@ -61,20 +58,7 @@ Always write:
 
 This is already present in the template. No change required.
 
-#### Step 4: Fill the `Test Directory Structure` Section
-
-1. Check if a `test/` directory exists in the project root.
-2. If it **exists**:
-   * Recursively list the full structure of the `test/` directory.
-   * Paste it into the `Test Directory Structure` section.
-3. If it **does not exist**:
-   * Show the message:
-     > "Test directory does not exist in project root"
-   * Instruct:
-     > "Please generate the test directory before proceeding"
-   * **Stop here** — do not continue to next steps.
-
-#### Step 5: `In Scope` Section
+#### Step 4: `In Scope` Section
 
 Use the following content as-is (already in template):
 
@@ -82,7 +66,7 @@ Use the following content as-is (already in template):
 * Event Handlers: For each event, a corresponding test file will be created
 ```
 
-#### Step 6: `Out of Scope` Section
+#### Step 5: `Out of Scope` Section
 
 Use the following content as-is (already in template):
 
@@ -92,11 +76,11 @@ Use the following content as-is (already in template):
 * Input schema validation (already enforced by Godspeed's event schema)
 ```
 
-#### Step 7: Fill the `List of Test Files` Section
+#### Step 6: Fill the `List of Test Files` Section
 
 Loop through each test file in the `test/eventHandlers/` directory and for each one:
 
-##### Step 7.1: Extract Context (Required to Generate Tests)
+##### Step 6.1: Extract Context (Required to Generate Tests)
 
 Gather relevant context for this event handler using the following:
 
@@ -115,7 +99,7 @@ Gather relevant context for this event handler using the following:
 4. **PRD Documentation (Optional but Helpful)**
    * Look in `docs/PRD.md` for relevant functional requirements or explanations
 
-##### Step 7.2: Generate Test Cases (Write to `docs/test/test-strategy.md`)
+##### Step 6.2: Generate Test Cases (Write to `docs/test/test-strategy.md`)
 
 **👉 Use the extracted context to understand the behavior of the event handler.**
 
@@ -250,7 +234,7 @@ Now do the following:
 **Note**: Don't include test cases for input schema validation as Godspeed already handles that. All external dependencies (databases, APIs, utility functions, etc.) should be mocked to isolate the unit under test.
 ```
 
-##### Step 7.3: Save Test Cases in the file (Write to `docs/test/test-strategy.md`)
+##### Step 6.3: Save Test Cases in the file (Write to `docs/test/test-strategy.md`)
 
 Now that you have generated the test cases, it's time to include them in test strategy in a structured way. For each test case, provide **comprehensive implementation details** that include:
 
@@ -305,7 +289,7 @@ If you cannot provide detailed implementation guidance due to missing context, y
 3. Provide a detailed placeholder that explains what needs to be determined
 4. Include all assumptions being made and mark them clearly
 
-##### Step 7.4: If Context is Missing
+##### Step 6.4: If Context is Missing
 
 If the event file, function code, and TRD provide **no useful context**:
 
