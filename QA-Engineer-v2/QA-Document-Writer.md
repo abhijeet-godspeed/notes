@@ -109,18 +109,10 @@ Gather relevant context for this event handler using the following:
    * Open the file: `src/functions/**/fn.ts`
    * Read logic, comments, and any surrounding context
 
-3. **Imported Functions (Only Relevant Ones)**
-
-   * Analyze the handler function and identify **which imported functions are actually used** within it
-   * From these, determine **which functions are necessary to understand in order to write meaningful test cases** (e.g., business logic, data transformations, condition-based decisions, or side effects)
-   * ✅ **Make a list of these required imported functions** (including their module paths)
-   * 🔍 One by one, read each of their source files to gather the relevant logic and comments
-   * 🚫 Ignore utility imports like logging, types, constants, and others that do not affect the functional behavior of the handler
-
-4. **TRD Documentation (Optional but Helpful)**
+3. **TRD Documentation (Optional but Helpful)**
    * Look in `docs/TRD.md` for relevant functional requirements or explanations
 
-5. **PRD Documentation (Optional but Helpful)**
+4. **PRD Documentation (Optional but Helpful)**
    * Look in `docs/PRD.md` for relevant functional requirements or explanations
 
 ##### Step 7.2: Generate Test Cases (Write to `docs/test/test-strategy.md`)
