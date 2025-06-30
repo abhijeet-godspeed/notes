@@ -90,12 +90,8 @@ To call functions in your tests, follow this standard approach:
 * Example:
 
   ```ts
-  const originalCreateUser = ctx.datasources.schema.client.createUser;
-  const stub = sinon.stub(ctx.datasources.schema.client.createUser, 'send').resolves(true);
-
-  // ... test logic ...
-
-  stub.restore(); // Restore at the end of the test
+    const prisma = ctx.datasources.prisma.client
+    const prismaStub = sinon.stub(prisma, 'findUser').resolves({ id: 1, email: 'test@example.com', name: 'Test User' });
   ```
 
 * **Important: Always retrieve external dependencies from the exact source as used in the function under test.**
