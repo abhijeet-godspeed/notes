@@ -77,27 +77,49 @@ To call functions in your tests, follow this standard approach:
    ```
    *Note: Function path should match the `src/functions/` directory structure using dot notation instead of slashes*
 
-**Datasource Mocking:**
-- for integration tests, you shouldnt mock the datasources and use it as it is from the ctx.
-- If for unit test cases, it is required to mock any function of the datasource by overwriting it, you must fix this overwriting at the end of that test case. Here is an example of that:
+**Unit Test Mocking Guidelines:**
 
-```
-// Stub the prisma.task.create method to throw an error
-    const originalCreate = ctx.datasources.schema.client.task.create;
-    (ctx.datasources.schema.client.task as any).create = async () => {
-      throw new Error('Simulated database error');
-    };
+* These are **unit tests**, so you must **mock all external dependencies** used inside the handler function under test.
 
-// Restore the original method after the mocked method is used
-    (ctx.datasources.schema.client.task as any).create = originalCreate;
-```
+* Use `sinon.stub()` to replace those dependencies with controlled behavior.
 
-**Database Handling:**
-- **Access:** Use the database through `ctx` that can be created using `makeContext()`
-- **Cleanup:** Clean relevant database tables before each test using `beforeEach()`
-- **Operations:** Freely perform database operations as needed (e.g., create test users for post creation tests)
-- **Verification:** Use Prisma directly from `ctx` to verify database changes
-- **Support:** Query the rag-node MCP server directly for specific Prisma datasource usage guidance
+* Always restore all stubs after each test using `.restore()` to avoid cross-test side effects.
+
+* **Do not use or depend on real datasources or services.**
+
+* Example:
+
+  ```ts
+  const originalCreateUser = ctx.datasources.schema.client.createUser;
+  const stub = sinon.stub(ctx.datasources.schema.client.createUser, 'send').resolves(true);
+
+  // ... test logic ...
+
+  stub.restore(); // Restore at the end of the test
+  ```
+
+* **Important: Always retrieve external dependencies from the exact source as used in the function under test.**
+
+  * If the function uses `ctx.datasources.axios`, stub it using `ctx.datasources.axios` in the test.
+  * If the function imports a utility (e.g. `import { doSomething } from '@/utils/helper'`), import it **from the same path** in the test and stub it.
+  * Never use an alternate path or recreate mocks independently; stubs must match the function’s reference for them to take effect.
+
+**Assertion Guidelines**
+
+* Write two types of assertions:
+
+  1. **Chai assertions** to check output and error values:
+
+     ```ts
+     expect(result.statusCode).to.equal(200);
+     expect(result.body).to.deep.equal(expectedOutput);
+     ```
+  2. **Sinon assertions** to validate interactions with stubs:
+
+     ```ts
+     sinon.assert.calledOnceWithExactly(stub, expectedArgs);
+     sinon.assert.notCalled(otherStub);
+     ```
 
 ### 5. Testing and Validation
 - Run the test file: `npm run test:single filePath`
