@@ -121,7 +121,7 @@ Gather relevant context for this event handler using the following:
 
 Now do the following:
 
-**Look at the following list of test categories and find out the relevant categories for this event handler based on the context extracted in the last step. write test cases to cover these relevant categories**:
+**Look at the following list of test categories and find out the relevant categories for this event handler based on the context extracted in the last step. write test cases to cover these relevant categories. Note that we are writing the unit tests so the following list contains scenerios for unit tests only**:
 
 ```
 ## 1. **Core Functionality**
