@@ -111,12 +111,13 @@ Gather relevant context for this event handler using the following:
 
 3. **Imported Functions Code**
 
-   * Parse the `import` statements in the handler function file
+   * Read the `import` statements in the handler function file
    * For each imported function used within the handler:
 
      * Locate the source file (relative or absolute path)
      * Read and include the full implementation logic and comments from those files
    * This helps capture indirect logic that may influence test scenarios
+   * Note that you have to read only the files that are in the code, not the import statements from installed modules
 
 4. **TRD Documentation (Optional but Helpful)**
    * Look in `docs/TRD.md` for relevant functional requirements or explanations
