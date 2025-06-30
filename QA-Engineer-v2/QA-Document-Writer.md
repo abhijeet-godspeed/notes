@@ -247,7 +247,7 @@ Now do the following:
   * Test adaptive behavior based on system state or feature toggles
   * Rationale: Validates flexible and configurable handler behavior.
 
-**Note**: **Don't include test cases for input schema validation as Godspeed already handles that. All external dependencies (databases, APIs, utility functions, etc.) should be mocked to isolate the unit under test.**
+**Note**: Don't include test cases for input schema validation as Godspeed already handles that. All external dependencies (databases, APIs, utility functions, etc.) should be mocked to isolate the unit under test.
 ```
 
 ##### Step 7.3: Save Test Cases in the file (Write to `docs/test/test-strategy.md`)
