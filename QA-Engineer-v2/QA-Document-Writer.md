@@ -288,6 +288,7 @@ Iterate through **each file** in the `src/events` directory **recursively**. For
 
 ```markdown
 ## full event file path (example: src/events/someFolder/anotherFolder/something.yaml)
+- overall status: Pending
 
 - test strategy path: docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md
 - test strategy status: Pending
@@ -302,7 +303,7 @@ Make sure:
 
 * Paths are preserved **relative to the `src/events` root**.
 * Only `.yaml` files are considered.
-* Status remains **"Pending"** by default for both test strategy and test file.
+* Status remains **"Pending"** by default.
 
 ### Task 3: Write Test Report
 **Trigger**: When assigned to create test report
