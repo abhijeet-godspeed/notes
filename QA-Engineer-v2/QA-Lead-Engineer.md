@@ -10,8 +10,8 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
 ## Workflow Steps
 
 ### 1. Generate Test Scaffolding
-- Check if a `test` directory exists in the project root
-- If NO test directory exists: Run the `npx @godspeedsystems/gs-tool gs-test-scaffolding` command
+- Check if a `test/unit` directory exists in the project root
+- If NO `test/unit` directory exists: Run the `gs-unit-test-scaffolding` command
 - If test directory exists: Skip this step
 
 ### 2. Prepare Prisma for testing
