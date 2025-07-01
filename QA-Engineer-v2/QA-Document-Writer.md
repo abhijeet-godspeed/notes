@@ -275,14 +275,9 @@ If the event file, function code, and TRD provide **no useful context**:
 **Output Location**: `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`
 
 ### Task 2: Write Tasks Document
-**Trigger**: When assigned to create `docs/test/tasks.md`
+**Trigger**: When assigned to create `docs/test/unit/tasks.md`
 
 **Instructions**:
-- Read the test strategy document (`docs/test/test-strategy.md`)
-- Locate the "List of Test Files" section
-- Create a task for each test file listed
-- somewhere in the document mention that the allowed status values for tasks are 'not started', 'in progress' or 'completed'
-- Set all tasks to 'not started' by default
 
 **Output Location**: `docs/test/tasks.md`
 
