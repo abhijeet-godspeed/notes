@@ -25,7 +25,7 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
   - **If user chooses existing document**: Skip this step and proceed to step 3
   - **If user chooses new document**: Use `new_task` tool to assign QA-Document-Writer mode to create a new test strategy document
 
-### 4. Create Tasks Document  
+### 3. Create Tasks Document  
 - Check if file `docs/test/tasks.md` exists
 - **If file does NOT exist**: 
   - Use `new_task` tool to assign QA-Document-Writer mode
@@ -36,19 +36,19 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
   - **If user chooses existing document**: Skip this step and proceed to step 3
   - **If user chooses new document**: Use `new_task` tool to assign QA-Document-Writer mode to create a new tasks file
 
-### 5. Execute Testing Tasks (Loop)
+### 4. Execute Testing Tasks (Loop)
 Repeat this loop until all tasks are completed:
-- **5.i** Open and read `docs/test/tasks.md`
+- **4.i** Open and read `docs/test/tasks.md`
 - Find the first uncompleted task
 - If all tasks are completed: Exit the loop
-- **5.ii** Use `new_task` tool to assign QA-Coder mode
+- **4.ii** Use `new_task` tool to assign QA-Coder mode
 - Task: Complete the identified task (provide full task details)
-- **5.iii** Once task is completed, mark it as completed in `docs/test/tasks.md`
+- **4.iii** Once task is completed, mark it as completed in `docs/test/tasks.md`
 
-### 6. Run All Tests
+### 5. Run All Tests
 - Execute `pnpm test:unit:all` command to run the complete test suite
 
-### 7. Generate Test Report
+### 6. Generate Test Report
 - Use `new_task` tool to assign QA-Document-Writer mode  
 - Task: Create a comprehensive test report based on test results and coverage
 
