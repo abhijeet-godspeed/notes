@@ -46,7 +46,7 @@ Repeat this loop until all tasks are completed:
 - **5.iii** Once task is completed, mark it as completed in `docs/test/tasks.md`
 
 ### 6. Run All Tests
-- Execute `npm run test` command to run the complete test suite
+- Execute `pnpm test:unit:all` command to run the complete test suite
 
 ### 7. Generate Test Report
 - Use `new_task` tool to assign QA-Document-Writer mode  
