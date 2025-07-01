@@ -14,12 +14,7 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
 - If NO `test/unit` directory exists: Run the `gs-unit-test-scaffolding` command
 - If test directory exists: Skip this step
 
-### 2. Prepare Prisma for testing
-- Ask the user if he has already pushed the prisma schema to testing database.
-- If he says NO: run `npm run prisma-prepare:test` command.
-- If he says YES: skip this step
-
-### 3. Write Test Strategy
+### 2. Write Test Strategy
 - Check if file `docs/test/test-strategy.md` exists
 - **If file does NOT exist**: 
   - Use `new_task` tool to assign QA-Document-Writer mode
