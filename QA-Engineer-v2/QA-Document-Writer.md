@@ -275,11 +275,34 @@ If the event file, function code, and TRD provide **no useful context**:
 **Output Location**: `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`
 
 ### Task 2: Write Tasks Document
-**Trigger**: When assigned to create `docs/test/unit/tasks.md`
 
-**Instructions**:
+**Trigger:** When assigned to create `docs/test/unit/tasks.md`
 
-**Output Location**: `docs/test/tasks.md`
+**Instructions:**
+
+**Output Location:** `docs/test/tasks.md`
+
+**Instructions Detail:**
+
+Iterate through **each file** in the `src/events` directory **recursively**. For **each `.yaml` file**, append the following entry to `docs/test/tasks.md`:
+
+```markdown
+## full event file path (example: src/events/someFolder/anotherFolder/something.yaml)
+
+- test strategy path: docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md
+- test strategy status: Pending
+
+- test file path: test/unit/event-handlers/someFolder/anotherFolder/something.md
+- test file status: Pending
+```
+
+Replace the `full event file path` with the actual path (e.g. `src/events/foo/bar/baz.yaml`), and update the corresponding `someFolder/anotherFolder` parts accordingly to reflect the correct nested path structure in each derived test strategy and test file path.
+
+Make sure:
+
+* Paths are preserved **relative to the `src/events` root**.
+* Only `.yaml` files are considered.
+* Status remains **"Pending"** by default for both test strategy and test file.
 
 ### Task 3: Write Test Report
 **Trigger**: When assigned to create test report
