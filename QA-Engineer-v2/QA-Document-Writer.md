@@ -51,16 +51,14 @@ Always write:
 
 This is already present in the template. No change required.
 
-#### Step 6: Fill the `List of Test Files` Section
-
-Loop through each test file in the `test/eventHandlers/` directory and for each one:
+#### Step 6: Fill the `List of Test Cases` Section
 
 ##### Step 6.1: Extract Context (Required to Generate Tests)
 
-Gather relevant context for this event handler using the following:
+Gather relevant context for the event handler using the following:
 
 1. **Event Summary**
-   * Locate the corresponding event YAML file: `src/events/**/name.yaml`
+   * Locate the corresponding event YAML file: `events/someFolder/anotherFolder/something.yaml`
    * Extract the `summary` field if available
 
 2. **Handler Function Code**
@@ -74,7 +72,7 @@ Gather relevant context for this event handler using the following:
 4. **PRD Documentation (Optional but Helpful)**
    * Look in `docs/PRD.md` for relevant functional requirements or explanations
 
-##### Step 6.2: Generate Test Cases (Write to `docs/test/test-strategy.md`)
+##### Step 6.2: Generate Test Cases
 
 **👉 Use the extracted context to understand the behavior of the event handler.**
 
@@ -209,7 +207,7 @@ Now do the following:
 **Note**: Don't include test cases for input schema validation as Godspeed already handles that. All external dependencies (databases, APIs, utility functions, etc.) should be mocked to isolate the unit under test.
 ```
 
-##### Step 6.3: Save Test Cases in the file (Write to `docs/test/test-strategy.md`)
+##### Step 6.3: Save Test Cases in the file (Write to `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`)
 
 Now that you have generated the test cases, it's time to include them in test strategy in a structured way. For each test case, provide **comprehensive implementation details** that include:
 
@@ -274,7 +272,7 @@ If the event file, function code, and TRD provide **no useful context**:
   * What assumptions are being made
   * What questions need to be answered before implementation
 
-**Output Location**: `docs/test/test-strategy.md`
+**Output Location**: `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`
 
 ### Task 2: Write Tasks Document
 **Trigger**: When assigned to create `docs/test/tasks.md`
