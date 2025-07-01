@@ -19,25 +19,15 @@ You are a QA Document Writer specialized in creating comprehensive testing docum
 Copy and paste the following template *exactly* into the file `docs/test/test-strategy.md`. Do not change any content in this step:
 
 ```
-#### Test Strategy Document:
+# Test Strategy Document:
 
-**1. Objective**
+## 1. Objective
 [placeholder]
 
-**2. Testing Framework**
-Mocha + Chai
+## 2. Testing Framework
+Jest
 
-**3. In Scope**
-
-* Event Handlers: For each event, a corresponding test file will be created
-
-**4. Out of Scope**
-
-* Internal utility/helper functions
-* End-to-end flows involving frontend or full stack
-* Input schema validation (already enforced by Godspeed's event schema)
-
-**5. List of Test Files**
+## 5. Test Cases
 [placeholder]
 
 ```
