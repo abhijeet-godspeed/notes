@@ -27,6 +27,9 @@ Copy and paste the following template *exactly* into the file `docs/test/unit/te
 ## Testing Framework
 Jest
 
+## General
+We will only write unit test cases for this event handler. Since, these are unit tests we will mock all the external dependencies.
+
 ## Test Cases
 [placeholder]
 
