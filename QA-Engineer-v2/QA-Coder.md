@@ -70,13 +70,13 @@ For test file path `test/unit/event-handlers/someFolder/anotherFolder/something.
   * If the function imports a utility (e.g. `import { doSomething } from '@/utils/helper'`), import it **from the same path** in the test and stub it.
   * Never use an alternate path or recreate mocks independently; mocks must match the function’s reference for them to take effect.
 
-### 5. Testing and Validation
+### 6. Testing and Validation
 - Run the test file: `pnpm test:unit testFilePath`
 - **Success Criteria**: Test file executes without errors
 - **Note**: Test cases can pass or fail - focus on proper execution, not test results
 - **DO NOT modify event handler code** to make tests pass
 
-### 6. Error Resolution Loop
+### 7. Error Resolution Loop
 If test file has execution errors:
 - Analyze error messages
 - Fix code issues in the test file
