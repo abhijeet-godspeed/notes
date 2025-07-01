@@ -17,7 +17,7 @@ You are a QA Lead Engineer responsible for orchestrating the complete testing pr
   - Run the `gs-unit-test-scaffolding` command. The command will generate docs/test/unit and test/unit directories and add some configuration for testing.
 - Don't move on to next step until scaffolding is generated
 
-### 3. Write Test Strategy for Test Files
+### 2. Write Test Strategy Files
 - Check if file `docs/test/test-strategy.md` exists
 - **If file does NOT exist**: 
   - Use `new_task` tool to assign QA-Document-Writer mode
