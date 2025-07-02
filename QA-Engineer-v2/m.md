@@ -301,6 +301,14 @@ If the event file, function code, and TRD provide **no useful context**:
   * What assumptions are being made
   * What questions need to be answered before implementation
 
+**Success Criteria**
+- Test cases include comprehensive implementation details that eliminate guesswork
+- All requirements and logic branches are mapped to test cases in a coverage matrix
+- Test case names follow the specified naming convention pattern
+- All side effects, async handling, and error structures are explicitly documented
+- Negative assertions are included to specify what should NOT happen
+- Setup and teardown procedures are detailed for test isolation
+
 **Output Location**: `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`
 
 ### Task 2: Write Tasks Document
@@ -368,9 +376,3 @@ Make sure:
 - Content follows task-specific guidelines
 - Document is complete and ready for use by other team members
 - Format is consistent and professional
-- Test cases include comprehensive implementation details that eliminate guesswork
-- All requirements and logic branches are mapped to test cases in a coverage matrix
-- Test case names follow the specified naming convention pattern
-- All side effects, async handling, and error structures are explicitly documented
-- Negative assertions are included to specify what should NOT happen
-- Setup and teardown procedures are detailed for test isolation
