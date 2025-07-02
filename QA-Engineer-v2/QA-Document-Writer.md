@@ -33,6 +33,9 @@ We will only write unit test cases for this event handler. Since, these are unit
 ## Test Cases
 [placeholder]
 
+## Coverage Matrix
+[placeholder]
+
 ```
 
 #### Step 2: Fill the `Objective` Section
@@ -211,48 +214,60 @@ Now do the following:
 
 Now that you have generated the test cases, it's time to include them in test strategy in a structured way. For each test case, provide **comprehensive implementation details** that include:
 
-1. **Detailed Test Implementation Guide**: Exact steps to implement the test
-2. **Input Data Specifications**: Precise input values, mock data, and test fixtures
-3. **Expected Behavior**: Detailed expected outcomes, return values, and side effects
-4. **Mocking Strategy**: Specific services, dependencies, or external calls to mock and how
-5. **Assertion Details**: Exact assertions to make (response structure, status codes, database state changes)
-6. **Setup and Teardown**: Any required test setup or cleanup procedures
+1. **Test Case Metadata**: Test file name and descriptive test case name following the pattern `should  when `
+2. **Detailed Test Implementation Guide**: Exact steps to implement the test
+3. **Input Data Specifications**: Precise input values, mock data, and test fixtures with exact sample values and structure
+4. **Expected Behavior**: Detailed expected outcomes, return values, and side effects
+5. **Mocking Strategy**: Specific services, dependencies, or external calls to mock and their expected behaviors and return values
+6. **Assertion Details**: Exact assertions to make including both positive (what should happen) and negative (what should NOT happen) checks
+7. **Setup and Teardown**: Any required test setup or cleanup procedures for test isolation
+8. **Async Handling**: Specify if the handler or test scenario is asynchronous and how async operations/errors should be handled
+9. **Error Object Structure**: For error scenarios, specify the exact structure and content of expected error objects or responses
+10. **Side Effects**: List all expected side effects and detail how they should be verified
+11. **Naming Conventions**: Enforce exact names and descriptions as specified in the strategy
 
 Take the following format as reference:
 
 ```
-### <serial number for test file>. <testFileName (the filename should be with full path, for example - test/eventHandlers/fileName.test.ts)>
+### . 
 
-#### Test Case <serial number of test case for current test file>: <Test Case Name>
+#### Test Case :  when >
 
-**Description**: <Brief one-line description>
+**Description**: 
 
 **Key Verification Points**:
-- <Specific things to verify in the test>
-- <Response format validations>
-- <Error handling scenarios>
+- 
+- 
+- 
 
 **Detailed Implementation Guide**:
-- **Setup**: <Detailed setup steps including mock configurations, etc.>
-- **Input Data**: <Exact input payload/parameters with sample values>
-- **Execution Steps**: <Step-by-step execution flow>
-- **Mocking Requirements**: <Specific mocks needed with their expected behaviors>
-- **Expected Assertions**: <Detailed list of assertions to verify>
-- **Cleanup**: <Any cleanup steps required>
+- **Setup**: 
+- **Input Data**: 
+- **Execution Steps**: 
+- **Mocking Requirements**: 
+- **Expected Assertions**: 
+- **Negative Assertions**: 
+- **Side Effect Assertions**: 
+- **Async Handling**: 
+- **Error Object Structure**: 
+- **Cleanup**: 
 
 **Assumptions Made** (if any):
-- <List any assumptions about the implementation>
-- <Missing context that needs clarification>
+- 
+- 
 ```
 
 **CRITICAL REQUIREMENTS for Test Case Descriptions**:
 1. **Be Extremely Detailed**: Each test case should provide enough detail that a developer can implement it without making assumptions
 2. **Include Exact Values**: Provide specific input values, not just types
 3. **Specify Mock Behaviors**: Detail exactly what mocks should return and under what conditions
-4. **List All Assertions**: Specify every assertion that should be made
+4. **List All Assertions**: Specify every assertion that should be made, including negative assertions
 5. **Address Edge Cases**: Include boundary conditions and error scenarios
-6. **Provide Code Structure**: Give a skeleton of how the test should be organized
-7. **Document Setup/Teardown**: Include any required test environment setup
+6. **Document Setup/Teardown**: Include any required test environment setup and cleanup for isolation
+7. **Side Effect Verification**: Explicitly state how to verify all side effects
+8. **Async Handling**: Clearly specify async/await patterns and error handling
+9. **Error Structure**: Provide exact error object structures for error scenarios
+10. **Naming Conventions**: Use exact names and descriptions as specified
 
 **If Context is Insufficient**:
 If you cannot provide detailed implementation guidance due to missing context, you MUST:
@@ -261,7 +276,21 @@ If you cannot provide detailed implementation guidance due to missing context, y
 3. Provide a detailed placeholder that explains what needs to be determined
 4. Include all assumptions being made and mark them clearly
 
-##### Step 4.4: If Context is Missing
+##### Step 4.4: Fill the Coverage Matrix Section
+
+After writing all test cases, create a comprehensive coverage matrix table that maps each requirement/logic branch to the corresponding test case(s):
+
+```
+## Coverage Matrix
+
+| Requirement/Logic Branch                    | Test Case(s)                |
+|---------------------------------------------|-----------------------------|
+|                                             |                             |
+```
+
+This matrix ensures that every requirement and logic branch is covered by at least one test case.
+
+##### Step 4.5: If Context is Missing
 
 If the event file, function code, and TRD provide **no useful context**:
 
@@ -271,6 +300,14 @@ If the event file, function code, and TRD provide **no useful context**:
   * Which files need to be reviewed
   * What assumptions are being made
   * What questions need to be answered before implementation
+
+**Success Criteria**
+- Test cases include comprehensive implementation details that eliminate guesswork
+- All requirements and logic branches are mapped to test cases in a coverage matrix
+- Test case names follow the specified naming convention pattern
+- All side effects, async handling, and error structures are explicitly documented
+- Negative assertions are included to specify what should NOT happen
+- Setup and teardown procedures are detailed for test isolation
 
 **Output Location**: `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`
 
@@ -339,4 +376,3 @@ Make sure:
 - Content follows task-specific guidelines
 - Document is complete and ready for use by other team members
 - Format is consistent and professional
-- Test cases include comprehensive implementation details that eliminate guesswork
