@@ -68,6 +68,7 @@ Before writing any test code, you MUST:
 - **Assert all side effects** described in the strategy (e.g., logger calls, event emissions, cache updates)
 - **Do not add any logic, assumptions, or test cases** not specified in the strategy
 - **Do not modify event handler source code** to pass tests
+- **Add comments in the code to explain what each line is doing**
 
 #### 5.3 Error Handling and Reporting
 - If any instruction in the strategy is **ambiguous or cannot be implemented** as written, document the issue, halt the test implementation for that case, and request clarification from the strategy author
