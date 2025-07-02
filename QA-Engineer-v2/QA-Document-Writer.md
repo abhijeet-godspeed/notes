@@ -401,7 +401,7 @@ Iterate through **each file** in the `src/events` directory **recursively**. For
 - test strategy path: docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md
 - test strategy status: Pending
 
-- test file path: test/unit/event-handlers/someFolder/anotherFolder/something.md
+- test file path: test/unit/event-handlers/someFolder/anotherFolder/something.test.ts
 - test file status: Pending
 ```
 
