@@ -83,30 +83,6 @@ Gather relevant context for the event handler using the following:
 
 **👉 Use the extracted context to understand the behavior of the event handler.**
 
-**CRITICAL: TODO and Assumption Management Rules**
-- **NEVER make assumptions** about unclear logic, missing context, or ambiguous requirements
-- **ALWAYS add TODOs** when you encounter any of the following:
-  - Unclear business logic or conditional branches
-  - Missing context about external dependencies
-  - Ambiguous error handling scenarios
-  - Uncertain input/output data structures
-  - Unclear validation rules or business constraints
-  - Missing information about expected side effects
-  - Uncertain async operation behaviors
-  - Unclear configuration or environment-specific logic
-
-**TODO Format Requirements:**
-When adding TODOs to test cases, use this exact format:
-
-```
-**OUTSTANDING TODOs:**
-- TODO: [Specific description of what needs clarification]
-- TODO: [Another specific item requiring clarification]
-- TODO: [etc.]
-
-**IMPACT:** Cannot implement meaningful test case until TODOs are resolved.
-```
-
 Now do the following:
 
 **Look at the following list of test categories and find out the relevant categories for this event handler based on the context extracted in the last step. write test cases to cover these relevant categories. Note that we are writing the unit tests so the following list contains scenerios for unit tests only**:
@@ -236,6 +212,30 @@ Now do the following:
   * Rationale: Validates flexible and configurable handler behavior.
 
 **Note**: Don't include test cases for input schema validation as Godspeed already handles that. All external dependencies (databases, APIs, utility functions, etc.) should be mocked to isolate the unit under test.
+```
+
+**CRITICAL: TODO and Assumption Management Rules**
+- **NEVER make assumptions** about unclear logic, missing context, or ambiguous requirements
+- **ALWAYS add TODOs** when you encounter any of the following:
+  - Unclear business logic or conditional branches
+  - Missing context about external dependencies
+  - Ambiguous error handling scenarios
+  - Uncertain input/output data structures
+  - Unclear validation rules or business constraints
+  - Missing information about expected side effects
+  - Uncertain async operation behaviors
+  - Unclear configuration or environment-specific logic
+
+**TODO Format Requirements:**
+When adding TODOs to test cases, use this exact format:
+
+```
+**OUTSTANDING TODOs:**
+- TODO: [Specific description of what needs clarification]
+- TODO: [Another specific item requiring clarification]
+- TODO: [etc.]
+
+**IMPACT:** Cannot implement meaningful test case until TODOs are resolved.
 ```
 
 ##### Step 4.3: Save Test Cases in the file (Write to `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`)
