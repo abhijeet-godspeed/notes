@@ -74,14 +74,19 @@ For whichever task the user selects, look up its instructions in the section bel
 3. Ask the user if he has updated the .env.test file and if it's done, run `pnpm prisma-prepare:test` command to push the schema to testing database.
 
 #### express
+instructions to be filled later
 
 #### fastify
+instructions to be filled later
 
 #### django
+instructions to be filled later
 
 #### fastapi
+instructions to be filled later
 
 #### flask
+instructions to be filled later
 ```
 
 7. **Set the `lastActivity` field** to the current timestamp in ISO format.
