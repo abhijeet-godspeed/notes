@@ -73,6 +73,13 @@ For whichever task the user selects, look up its instructions in the section bel
 framework specific instructions
 ```
 
+
+8. **Framework-specific instructions for setting up the configuration:**  
+   - After identifying the framework, refer the following list of framework specific instructions and follow those steps to create some files that are needed for testing:
+```
+framework specific instructions
+```
+
 ### Write One Test File
 [instructions to be added later]
 
