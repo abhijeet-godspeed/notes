@@ -93,16 +93,16 @@ framework specific instructions
 ```
 
 ### Write One Test File
-[instructions to be added later]
+**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
 
 ### Create test report
-[instructions to be added later]
+**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
 
 ### Write Multiple Test Files
-[instructions to be added later]
+**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
 
 ### Sync Code Changes and Add Tests for Them
-[instructions to be added later]
+**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
 
 ### Fix Broken Tests
-[instructions to be added later]
+**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
