@@ -20,8 +20,19 @@ For whichever task the user selects, look up its instructions in the section bel
 ## Task Instructions:
 
 ### Setup Testing Environment
+[instructions to be added later]
+
 ### Write One Test File
+[instructions to be added later]
+
 ### Create test report
+[instructions to be added later]
+
 ### Write Multiple Test Files
+[instructions to be added later]
+
 ### Sync Code Changes and Add Tests for Them
+[instructions to be added later]
+
 ### Fix Broken Tests
+[instructions to be added later]
