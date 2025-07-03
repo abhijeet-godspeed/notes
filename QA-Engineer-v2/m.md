@@ -88,7 +88,32 @@ For whichever task the user selects, look up its instructions in the section bel
 8. **Tell the user that testing setup is done**
 
 ### Write One Test File
-**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
+
+1. **Ask the user:**  
+   "Do you want to write a unit test or a functional test?"
+
+2. **Ask the user:**  
+   "Please provide the name of the function for which you want to write the test."
+
+3. **Locate the function in `qa-context.json`:**  
+   - Depending on the user's choice (unit or functional), look for the function name in the corresponding `not started` array under the `testProgress` field.
+   - If the function is not found in `not started`, then look in the `pending` array.
+   - If the function is not found in `pending` array too, then notify the user and end the task.
+
+4. **Update the status of the function:**  
+   - If the function was found in `not started` array then move it to `pending array`
+
+5. **Assign the QA Document Writer agent:**  
+   - Pass the function name and its context to the QA Document Writer agent.
+   - Instruct the QA Document Writer agent to generate a detailed test strategy for this function.
+
+6. **Assign the QA Coder agent:**  
+   - Once the test strategy is created, pass the function name, its context, and the test strategy to the QA Coder agent.
+   - Instruct the QA Coder agent to write the test file for this function as per the provided strategy.
+
+7. **Completion:**  
+   - After the QA Coder agent has written the test file, inform the user:  
+     "The test file for your function has been created and the task is completed."
 
 ### Create test report
 **End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
