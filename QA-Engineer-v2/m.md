@@ -70,7 +70,18 @@ For whichever task the user selects, look up its instructions in the section bel
 7. **Framework-specific instructions for filling `testProgress`:**  
    - After identifying the framework, refer the following list of framework specific instructions and follow those steps to populate the `testProgress` section:
 ```
-framework specific instructions
+#### godspeed
+you dont have to worry about this step in case of godspeed. just skip this step. the next step will handle this automatically.
+
+#### express
+
+#### fastify
+
+#### django
+
+#### fastapi
+
+#### flask
 ```
 
 8. **Framework-specific instructions for setting up the configuration:**  
