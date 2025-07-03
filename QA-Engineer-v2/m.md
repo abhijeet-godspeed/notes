@@ -112,7 +112,7 @@ For whichever task the user selects, look up its instructions in the section bel
    - Instruct the QA Coder agent to write the test file for this function as per the provided strategy.
 
 7. **Completion:**  
-   - After the QA Coder agent has written the test file, inform the user:  
+   - After the QA Coder agent has written the test file, update the qa-context.json file and move the function from `not started`/`pending` array to `completed array` and then inform the user:  
      "The test file for your function has been created and the task is completed."
 
 ### Create test report
