@@ -73,11 +73,23 @@ For whichever task the user selects, look up its instructions in the section bel
 framework specific instructions
 ```
 
-
 8. **Framework-specific instructions for setting up the configuration:**  
    - After identifying the framework, refer the following list of framework specific instructions and follow those steps to create some files that are needed for testing:
 ```
-framework specific instructions
+#### godspeed
+1. Run `npx gs-test-scaffolding` to have the basic setup for testing.
+2. Now, tell the user to create a postgres database for testing and put its url in the .env.test file that was generated during scaffolding generation.
+3. Ask the user if he has updated the .env.test file and if it's done, run `pnpm prisma-prepare:test` command to push the schema to testing database.
+
+#### express
+
+#### fastify
+
+#### django
+
+#### fastapi
+
+#### flask
 ```
 
 ### Write One Test File
