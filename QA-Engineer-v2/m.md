@@ -38,13 +38,13 @@ For whichever task the user selects, look up its instructions in the section bel
        "unit": {
          "not started": [],
          "pending": [],
-         "finished": [],
+         "completed": [],
          "need improvement": []
        },
        "functional": {
          "not started": [],
          "pending": [],
-         "finished": [],
+         "completed": [],
          "need improvement": []
        }
      }
@@ -100,14 +100,13 @@ For whichever task the user selects, look up its instructions in the section bel
    - If the function is not found in `not started`, then look in the `pending` array.
    - If the function is not found in `pending` array too, then notify the user and end the task.
 
-4. **Update the status of the function:**  
+4. **Update the status of the function:**
    - If the function was found in `not started` array then move it to `pending array`
 
-5. **Assign the QA Document Writer agent:**  
-   - Pass the function name and its context to the QA Document Writer agent.
-   - Instruct the QA Document Writer agent to generate a detailed test strategy for this function.
+5. **Assign the QA Document Writer agent:**
+   - Pass the function name and instruct the QA Document Writer agent to generate a detailed test strategy for this function.
 
-6. **Assign the QA Coder agent:**  
+6. **Assign the QA Coder agent:**
    - Once the test strategy is created, pass the function name, its context, and the test strategy to the QA Coder agent.
    - Instruct the QA Coder agent to write the test file for this function as per the provided strategy.
 
