@@ -209,10 +209,6 @@ We will only write unit test cases for this event handler. Since, these are unit
 
 [Instructions to be added later.]
 
-## Output Location
-
-- The completed test strategy document must be saved at the path provided in the input (e.g., `docs/test/unit/test-strategy/event-handlers/someFolder/anotherFolder/something.md`).
-
 **Critical Rules:**
 - Do not add logic, assumptions, or modifications not specified in the instructions.
 - Do not attempt meaningful implementation of TODO-blocked test cases.
