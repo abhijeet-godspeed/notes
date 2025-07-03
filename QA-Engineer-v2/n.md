@@ -40,11 +40,8 @@ To determine the correct path:
 ```
 # Test Strategy Document:
 
-## Objective
-[placeholder]
-
 ## Testing Framework
-Jest
+[placeholder]
 
 ## General
 We will only write unit test cases for this event handler. Since, these are unit tests we will mock all the external dependencies.
@@ -59,20 +56,12 @@ We will only write unit test cases for this event handler. Since, these are unit
 [This section will be populated with any TODOs identified during strategy creation]
 ```
 
-### Step 2: Fill the `Objective` Section
+### Step 2: Fill the `Testing Framework` Section
+- get the testing framework name form the qa-context.json file and fill in the testing framework section of the test strategy.
 
-- Ask the user:  
-  **"What is the primary objective for testing this event handler?"**
-- Wait for the user's response and insert it under the **Objective** section.
+### Step 3: Fill the `Test Cases` Section
 
-### Step 3: Fill the `Testing Framework` Section
-
-- The value is always `Jest`.  
-- This is already present in the template; no changes required.
-
-### Step 4: Fill the `Test Cases` Section
-
-#### 4.1: Extract Context
+#### 3.1: Extract Context
 
 - Gather relevant context for the event handler:
   - **Event Summary**:  
@@ -87,7 +76,7 @@ We will only write unit test cases for this event handler. Since, these are unit
   - **PRD Documentation (optional)**:  
     - Check `docs/PRD.md` for relevant requirements or explanations
 
-#### 4.2: Generate Test Cases with TODO Management
+#### 3.2: Generate Test Cases with TODO Management
 
 - Use the extracted context to understand the event handler's behavior.
 - Refer to the provided categories of unit test scenarios and select all that are relevant to the handler.
@@ -116,7 +105,7 @@ We will only write unit test cases for this event handler. Since, these are unit
 **IMPACT:** Cannot implement meaningful test case until TODOs are resolved.
 ```
 
-#### 4.3: Save Test Cases
+#### 3.3: Save Test Cases
 
 - For each test case, provide:
   - Test case metadata (file name, descriptive name in the format `should  when `)
@@ -156,7 +145,7 @@ We will only write unit test cases for this event handler. Since, these are unit
 - 
 ```
 
-#### 4.4: Fill the Coverage Matrix Section
+#### 3.4: Fill the Coverage Matrix Section
 
 - Create a table mapping each requirement/logic branch to the corresponding test case(s).
 - Mark status as "TODOs" for any test case with outstanding TODOs.
@@ -170,7 +159,7 @@ We will only write unit test cases for this event handler. Since, these are unit
 |                                             |                            | Complete/TODOs |
 ```
 
-#### 4.5: TODO Summary and User Interaction
+#### 3.5: TODO Summary and User Interaction
 
 - After writing all test cases, summarize outstanding TODOs:
 
@@ -200,7 +189,7 @@ We will only write unit test cases for this event handler. Since, these are unit
 - If the user chooses to resolve TODOs, wait for clarifications and update the document.
 - If the user chooses to proceed, continue to the final verification step.
 
-#### 4.6: Final Strategy Verification
+#### 3.6: Final Strategy Verification
 
 - Ask the user:
   > "Please review the completed test strategy document. Do you approve this strategy, or would you like me to make any modifications?"
