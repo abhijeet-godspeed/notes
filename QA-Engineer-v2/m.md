@@ -101,7 +101,7 @@ For whichever task the user selects, look up its instructions in the section bel
    - If the function is not found in `pending` array too, then notify the user and end the task.
 
 4. **Update the status of the function:**
-   - If the function was found in `not started` array then move it to `pending array`
+   - If the function was found in `not started` array then move it to `pending` array
 
 5. **Assign the QA Document Writer mode:**
    - Pass the function name and instruct the QA Document Writer mode to generate a detailed test strategy for this function.
@@ -110,7 +110,7 @@ For whichever task the user selects, look up its instructions in the section bel
    - Once the test strategy is created, pass the function name to the QA Coder mode and instruct him to write the test file for this function based on the test strategy.
 
 7. **Completion:**  
-   - After the QA Coder agent has written the test file, update the qa-context.json file and move the function from `not started`/`pending` array to `completed array` and then inform the user:  
+   - After the QA Coder agent has written the test file, update the qa-context.json file and move the function from `not started`/`pending` array to `completed` array and then inform the user:  
      "The test file for your function has been created and the task is completed."
 
 ### Create test report
