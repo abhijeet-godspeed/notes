@@ -65,9 +65,7 @@ For whichever task the user selects, look up its instructions in the section bel
 5. **Ask the user which test framework to use.**  
    - For now, only provide the option: `jest`.
 
-6. **Set the `lastActivity` field** to the current timestamp in ISO format.
-
-7. **Framework-specific instructions for setting up the configuration and filling the `testProgress` field in qa-context.json file:**  
+6. **Framework-specific instructions for setting up the configuration and filling the `testProgress` field in qa-context.json file:**  
    - After identifying the framework, refer the following list of framework specific instructions and follow those steps to create some files that are needed for testing:
 ```
 #### godspeed
@@ -85,6 +83,9 @@ For whichever task the user selects, look up its instructions in the section bel
 
 #### flask
 ```
+
+7. **Set the `lastActivity` field** to the current timestamp in ISO format.
+8. **Tell the user that testing setup is done**
 
 ### Write One Test File
 **End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
