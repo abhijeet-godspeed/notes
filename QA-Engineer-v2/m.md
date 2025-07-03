@@ -41,7 +41,7 @@ For whichever task the user selects, look up its instructions in the section bel
          "finished": [],
          "need improvement": []
        },
-       "integration": {
+       "functional": {
          "completed": [],
          "pending": [],
          "finished": [],
