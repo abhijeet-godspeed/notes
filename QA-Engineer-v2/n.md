@@ -212,9 +212,6 @@ _Follow these steps for functional test strategies:_
 - **Concurrent Operations:** Simultaneous requests or actions.
 - **Configuration/Environment:** Behavior under different environment settings.
 
-- **Never make assumptions about unclear logic or missing context.**
-- **Always add TODOs** for any ambiguity or missing information.
-
 ### Step 6: Cleanup Strategy
 
 - Provide a detailed plan for cleaning up all data and state after each test.
@@ -227,6 +224,8 @@ _Follow these steps for functional test strategies:_
 
 ### Step 8: TODO Summary and User Interaction
 
+- Never make assumptions about unclear logic or missing context.
+- Always add TODOs for any ambiguity or missing information.
 - After writing all test cases, summarize outstanding TODOs and ask the user whether to resolve TODOs or proceed.
 
 ### Step 9: Final Strategy Verification
