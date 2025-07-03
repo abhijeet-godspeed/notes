@@ -23,7 +23,7 @@ For whichever task the user selects, look up its instructions in the section bel
 ### Setup Testing Environment
 
 1. **Create a `qa-state.json` file** in the project root.  
-   - If `qa-state.json` already exists, delete it and create a new one.
+   - If `qa-context.json` already exists, delete it and create a new one.
 
 2. **The JSON file must follow this template:**
    ```json
@@ -67,24 +67,7 @@ For whichever task the user selects, look up its instructions in the section bel
 
 6. **Set the `lastActivity` field** to the current timestamp in ISO format.
 
-7. **Framework-specific instructions for filling `testProgress`:**  
-   - After identifying the framework, refer the following list of framework specific instructions and follow those steps to populate the `testProgress` section:
-```
-#### godspeed
-you dont have to worry about this step in case of godspeed. just skip this step. the next step will handle this automatically.
-
-#### express
-
-#### fastify
-
-#### django
-
-#### fastapi
-
-#### flask
-```
-
-8. **Framework-specific instructions for setting up the configuration:**  
+7. **Framework-specific instructions for setting up the configuration and filling the `testProgress` field in qa-context.json file:**  
    - After identifying the framework, refer the following list of framework specific instructions and follow those steps to create some files that are needed for testing:
 ```
 #### godspeed
