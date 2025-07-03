@@ -36,13 +36,13 @@ For whichever task the user selects, look up its instructions in the section bel
      },
      "testProgress": {
        "unit": {
-         "completed": [],
+         "not started": [],
          "pending": [],
          "finished": [],
          "need improvement": []
        },
        "functional": {
-         "completed": [],
+         "not started": [],
          "pending": [],
          "finished": [],
          "need improvement": []
