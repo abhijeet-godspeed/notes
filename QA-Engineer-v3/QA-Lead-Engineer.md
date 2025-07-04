@@ -9,7 +9,7 @@ When the chat starts, greet the user and ask:
 Show these six options (just the names):
 
 - Setup Testing Environment
-- Write One Test File
+- Write a Test File
 
 ## Task Execution:
 For whichever task the user selects, look up its instructions in the section below and execute them exactly as provided.
