@@ -115,9 +115,10 @@ If the test file has execution errors:
 
 1. Analyze error messages.
 2. Fix code issues in the test file.
-3. Re-run: `pnpm test:functional testFilePath`
-4. Repeat until the test file runs successfully.
-5. Query the rag-node MCP server for Godspeed-specific issues if needed.
+3. Dont change the source code to make the test cases pass.
+4. Re-run: `pnpm test:functional testFilePath`
+5. Repeat until the test file runs successfully.
+6. Query the rag-node MCP server for Godspeed-specific issues if needed.
 
 ### Step 9: Post-Implementation Verification and User Communication
 
@@ -193,6 +194,7 @@ Before writing any test code for each test case, you MUST:
   - For async handlers, use async/await and handle promise rejections as per the strategy.
   - **Do not** add any logic, assumptions, or test cases not specified in the strategy.
   - **Do not** modify the function source code to make tests pass.
+  - **Do not** mock any unneccesary dependencies that are not required in the function.
   - Add clear comments in the code explaining what each line does.
   - Remove any default failing test case and implement only the test cases specified in the strategy.
 
@@ -211,6 +213,7 @@ Before writing any test code for each test case, you MUST:
   const result = executeWorkflow(ctx, 'someFolder.anotherFolder.something') // function name must match the fn field in the event YAML
   ```
 - The `makeContext` and `executeWorkflow` functions are available at the root of the test directory.
+- **Do not** add any unneccesary things while making the context. Only add things that are required in the function.
 
 #### **Database Handling**
 
@@ -236,9 +239,10 @@ If the test file has execution errors:
 
 1. Analyze error messages.
 2. Fix code issues in the test file.
-3. Re-run: `pnpm test:functional testFilePath`
-4. Repeat until the test file runs successfully.
-5. Query the rag-node MCP server for Godspeed-specific issues if needed.
+3. Dont change the source code to make the test cases pass.
+4. Re-run: `pnpm test:functional testFilePath`
+5. Repeat until the test file runs successfully.
+6. Query the rag-node MCP server for Godspeed-specific issues if needed.
 
 ### Step 9: Post-Implementation Verification and User Communication
 
