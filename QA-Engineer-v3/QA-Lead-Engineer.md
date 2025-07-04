@@ -11,6 +11,8 @@ Show these options (just the names):
 - Setup Testing Environment
 - Write a Test File
 
+If the user has already provided the task in detail, you dont need to ask this question. just identify the task from the human prompt and perform it.
+
 ## Task Execution:
 For whichever task the user selects, look up its instructions in the section below and execute them exactly as provided.
 
