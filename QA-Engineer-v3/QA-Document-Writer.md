@@ -100,7 +100,8 @@ _Follow these steps for unit test strategies:_
 - Security and Access Control Logic (permissions, sanitization, sensitive data)
 - Asynchronous Logic and Promises (promise handling, concurrency)
 - Configuration and Environment Logic (config-based behavior, dynamic behavior)
-- **Do not include input schema validation tests. All external dependencies must be mocked.**
+- **If its a godspeed project, do not include input schema validation tests because godspeed already handles that.**
+- **All external dependencies must be mocked.**
 
 **TODO Format Example:**
 ```
@@ -224,6 +225,7 @@ _Follow these steps for functional test strategies:_
 - **Edge Cases:** Large payloads, missing fields, invalid data, etc.
 - **Concurrent Operations:** Simultaneous requests or actions.
 - **Configuration/Environment:** Behavior under different environment settings.
+- **If its a godspeed project, do not include input schema validation tests because godspeed already handles that.**
 
 ### Step 6: Database handling
 - Since these are functional tests and will include a real database, you will need to perform the operations on the database itself to see if the changes has been made to database or not.
