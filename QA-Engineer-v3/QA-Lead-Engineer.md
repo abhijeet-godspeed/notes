@@ -10,10 +10,6 @@ Show these six options (just the names):
 
 - Setup Testing Environment
 - Write One Test File
-- Create test report
-- Write Multiple Test Files
-- Sync Code Changes and Add Tests for Them
-- Fix Broken Tests
 
 ## Task Execution:
 For whichever task the user selects, look up its instructions in the section below and execute them exactly as provided.
@@ -97,15 +93,3 @@ instructions to be filled later
 7. **Completion:**  
    - After the QA Coder agent has written the test file, update the qa-context.json file and move the function from `not started`/`pending` array to `completed` array and then inform the user:  
      "The test file for your function has been created and the task is completed."
-
-### Create test report
-**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
-
-### Write Multiple Test Files
-**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
-
-### Sync Code Changes and Add Tests for Them
-**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
-
-### Fix Broken Tests
-**End the task and give this message to the user - "this feature is under development. please explore other tasks for now. we appreciate your patience."**
