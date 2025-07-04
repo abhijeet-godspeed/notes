@@ -22,51 +22,16 @@ For whichever task the user selects, look up its instructions in the section bel
 
 ### Setup Testing Environment
 
-1. **Create a `qa-state.json` file** in the project root.  
-   - If `qa-context.json` already exists, delete it and create a new one.
-   - add the `qa-context.json` file to .gitignore so that it is not pushed to github
+1. **Detect which framework the project uses**:
+   - If a `.godspeed` file exists in the project root, the framework is `godspeed`.
+   - If a `manage.py` file exists, the framework is `django`.
+   - If an `app.py` or `main.py` file exists and `flask` is in `requirements.txt`, the framework is `flask`.
+   - If an `app.py` or `main.py` file exists and `fastapi` is in `requirements.txt`, the framework is `fastapi`.
+   - If a `package.json` exists and `express` is listed in dependencies, the framework is `express`.
+   - If a `package.json` exists and `fastify` is listed in dependencies, the framework is `fastify`.
+   - If none of these conditions are met, notify the user.
 
-2. **The JSON file must follow this template:**
-   ```json
-   {
-     "project": {
-       "name": "",
-       "framework": "",
-       "testFramework": "",
-       "lastActivity": ""
-     },
-     "testProgress": {
-       "unit": {
-         "not started": [],
-         "pending": [],
-         "completed": [],
-         "need improvement": []
-       },
-       "functional": {
-         "not started": [],
-         "pending": [],
-         "completed": [],
-         "need improvement": []
-       }
-     }
-   }
-   ```
-
-3. **Fill the `project.name` field** with the name of the project folder.
-
-4. **Detect which framework the project uses** and fill the `project.framework` field:
-   - If a `.godspeed` file exists in the project root, set framework to `godspeed`.
-   - If a `manage.py` file exists, set framework to `django`.
-   - If an `app.py` or `main.py` file exists and `flask` is in `requirements.txt`, set framework to `flask`.
-   - If an `app.py` or `main.py` file exists and `fastapi` is in `requirements.txt`, set framework to `fastapi`.
-   - If a `package.json` exists and `express` is listed in dependencies, set framework to `express`.
-   - If a `package.json` exists and `fastify` is listed in dependencies, set framework to `fastify`.
-   - If none of these conditions are met, leave the field blank and notify the user.
-
-5. **Ask the user which test framework to use.**  
-   - For now, only provide the option: `jest`.
-
-6. **Framework-specific instructions for setting up the configuration and filling the `testProgress` field in qa-context.json file:**  
+2. **Framework-specific instructions for setting up the test scaffolding:**  
    - After identifying the framework, refer the following list of framework specific instructions and follow those steps to create some files that are needed for testing:
 ```
 #### godspeed
@@ -90,8 +55,22 @@ instructions to be filled later
 instructions to be filled later
 ```
 
-7. **Set the `lastActivity` field** to the current timestamp in ISO format.
-8. **Tell the user that testing setup is done**
+3. **Add `qa-state.json` to .gitignore**.
+   - the scaffolding generation step creates a qa-context.json file
+   - add the `qa-context.json` file to .gitignore so that it is not pushed to github
+
+3. **Fill the `project.name` field in the `qa-context.json` file** with the name of the project folder.
+
+4. **Fill the `project.framework` field in the `qa-context.json file`** witht the framework of the project(godspeed, django, express whatever the project is built on)  
+   - For now, only provide the option: `jest`.
+   - fill the user choice in the project.testFramework field in the `qa-context.json` file
+
+5. **Ask the user which test framework to use.**
+   - For now, only provide the option: `jest`.
+   - fill the user choice in the project.testFramework field in the `qa-context.json` file
+
+6. **Set the `lastActivity` field** to the current timestamp in ISO format.
+7. **Tell the user that testing setup is done**
 
 ### Write One Test File
 
