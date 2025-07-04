@@ -99,11 +99,35 @@ Before writing any test code for each test case, you MUST:
   - Add clear comments in the code explaining what each line does.
   - Remove any default failing test case and implement only the test cases specified in the strategy.
 
-### Step 7: Finalization
+### Step 7: Testing and Validation
 
-- After all test cases are implemented, review the file for completeness and clarity.
-- Ensure all requirements from the test strategy are met and all comments are present.
-- Notify the user that test file implementation is complete.
+- **Run the test file:**  
+  Use the command: `pnpm test:unit `
+- **Success Criteria:**  
+  The test file executes without errors.  
+  - Test cases can pass or fail; focus on proper execution, not test results.
+  - TODO-blocked test cases should fail intentionally; ready-to-implement test cases should execute properly.
+  - **Do NOT modify event handler code to make tests pass.**
+
+### Step 8: Error Resolution Loop
+
+If the test file has execution errors:
+
+1. Analyze error messages.
+2. Fix code issues in the test file.
+3. Re-run: `pnpm test:unit `
+4. Repeat until the test file runs successfully.
+5. Query the rag-node MCP server for Godspeed-specific issues if needed.
+
+### Step 9: Post-Implementation Verification and User Communication
+
+After implementing all test cases:
+
+1. Ensure every requirement/branch from the strategy is covered by a test case.
+2. Verify all side effects are properly asserted for ready-to-implement test cases.
+3. Confirm test isolation—no test should depend on or affect another test's state.
+4. Validate async handling—all async operations are properly awaited and errors handled.
+5. Notify the user that test file implementation is complete.
 
 ## Functional Test File Instructions
 
