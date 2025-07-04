@@ -63,7 +63,7 @@ note: dont change remove the existing content in the file. only fill the values 
 ```
 4. **Tell the user that testing setup is done**
 
-### Write One Test File
+### Write a Test File
 
 1. **Ask the user:**  
    "Do you want to write a unit test or a functional test?"
