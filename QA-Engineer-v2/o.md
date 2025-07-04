@@ -102,7 +102,7 @@ Before writing any test code for each test case, you MUST:
 ### Step 7: Testing and Validation
 
 - **Run the test file:**  
-  Use the command: `pnpm test:unit `
+  Use the command: `pnpm test:functional testFilePath`
 - **Success Criteria:**  
   The test file executes without errors.  
   - Test cases can pass or fail; focus on proper execution, not test results.
@@ -115,7 +115,7 @@ If the test file has execution errors:
 
 1. Analyze error messages.
 2. Fix code issues in the test file.
-3. Re-run: `pnpm test:unit `
+3. Re-run: `pnpm test:functional testFilePath`
 4. Repeat until the test file runs successfully.
 5. Query the rag-node MCP server for Godspeed-specific issues if needed.
 
@@ -223,7 +223,7 @@ Before writing any test code for each test case, you MUST:
 ### Step 7: Testing and Validation
 
 - **Run the test file:**  
-  Use the command: `pnpm test:functional `
+  Use the command: `pnpm test:functional testFilePath`
 - **Success Criteria:**  
   The test file executes without errors.  
   - Test cases can pass or fail; focus on proper execution, not test results.
@@ -236,7 +236,7 @@ If the test file has execution errors:
 
 1. Analyze error messages.
 2. Fix code issues in the test file.
-3. Re-run: `pnpm test:functional `
+3. Re-run: `pnpm test:functional testFilePath`
 4. Repeat until the test file runs successfully.
 5. Query the rag-node MCP server for Godspeed-specific issues if needed.
 
