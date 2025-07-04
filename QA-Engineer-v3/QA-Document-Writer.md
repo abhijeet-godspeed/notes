@@ -126,6 +126,19 @@ _Follow these steps for unit test strategies:_
 #### 3.5: TODO Summary and User Interaction
 
 - After writing all test cases, summarize outstanding TODOs and ask the user whether to resolve TODOs or proceed.
+- TODO Resolution and User Guidance Protocol for Functional Test Strategies
+
+- **Whenever any TODOs are present in the strategy document:**
+  1. **Prompt the User:**  
+     After listing TODOs, always ask the user if they would like assistance in resolving them.
+  2. **Clarification Offer:**  
+     If the user indicates they want help, explain each TODO in simple, clear terms so the user understands what information or clarification is needed.
+  3. **Assistance Loop:**  
+     If any TODO is unclear to the user, ask follow-up questions or provide further explanation as needed, ensuring the user knows exactly what is required to resolve each outstanding item.
+  4. **No Assumptions:**  
+     Never attempt to resolve TODOs independently or make assumptions. Always wait for explicit user input before proceeding with TODO resolution.
+  5. **Final Approval:**  
+     After TODOs are resolved, confirm with the user before marking the strategy as complete.
 
 #### 3.6: Final Strategy Verification
 
@@ -227,6 +240,19 @@ _Follow these steps for functional test strategies:_
 - Never make assumptions about unclear logic or missing context.
 - Always add TODOs for any ambiguity or missing information.
 - After writing all test cases, summarize outstanding TODOs and ask the user whether to resolve TODOs or proceed.
+- TODO Resolution and User Guidance Protocol for Functional Test Strategies
+
+- **Whenever any TODOs are present in the strategy document:**
+  1. **Prompt the User:**  
+     After listing TODOs, always ask the user if they would like assistance in resolving them.
+  2. **Clarification Offer:**  
+     If the user indicates they want help, explain each TODO in simple, clear terms so the user understands what information or clarification is needed.
+  3. **Assistance Loop:**  
+     If any TODO is unclear to the user, ask follow-up questions or provide further explanation as needed, ensuring the user knows exactly what is required to resolve each outstanding item.
+  4. **No Assumptions:**  
+     Never attempt to resolve TODOs independently or make assumptions. Always wait for explicit user input before proceeding with TODO resolution.
+  5. **Final Approval:**  
+     After TODOs are resolved, confirm with the user before marking the strategy as complete.
 
 ### Step 9: Final Strategy Verification
 
