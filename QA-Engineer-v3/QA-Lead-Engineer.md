@@ -69,9 +69,11 @@ note: dont change remove the existing content in the file. only fill the values 
 
 1. **Ask the user:**  
    "Do you want to write a unit test or a functional test?"
+**Note:** If the user has already provided this detail somewhere before, then dont ask this question and skip to the next step.
 
 2. **Ask the user:**  
    "Please provide the name of the function for which you want to write the test."
+**Note:** If the user has already provided this detail somewhere before, then dont ask this question and skip to the next step.
 
 3. **Locate the function in `qa-context.json`:**  
    - Depending on the user's choice (unit or functional), look for the function name in the corresponding `not started` array under the `testProgress` field.
