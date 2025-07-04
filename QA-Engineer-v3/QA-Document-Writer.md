@@ -225,11 +225,18 @@ _Follow these steps for functional test strategies:_
 - **Concurrent Operations:** Simultaneous requests or actions.
 - **Configuration/Environment:** Behavior under different environment settings.
 
-### Step 6: Cleanup Strategy
-
+### Step 6: Database handling
+- Since these are functional tests and will include a real database, you will need to perform the operations on the database itself to see if the changes has been made to database or not.
 - Provide a detailed plan for cleaning up all data and state after each test.
 - Ensure the database and environment are left in a clean state after test execution.
-
+- Here are some instructions for database handling:
+```
+**Access:** Use the database through `ctx` created by `makeContext()`.
+**Cleanup:** Clean relevant database tables before each test using `beforeEach()`.
+**Operations:** Freely perform database operations as needed (e.g., create test users for post creation tests).
+**Verification:** Use Prisma directly from `ctx` to verify database changes.
+**Support:** Query the rag-node MCP server directly for specific Prisma datasource usage guidance.
+```
 ### Step 7: Coverage Matrix
 
 - Map each requirement, integration, or logic branch to the corresponding test case(s).
