@@ -51,22 +51,17 @@ instructions to be filled later
 instructions to be filled later
 ```
 
-3. **Add `qa-state.json` to .gitignore**.
-   - the scaffolding generation step creates a qa-context.json file
-   - add the `qa-context.json` file to .gitignore so that it is not pushed to github
+3. **Fill `qa-context.json`**
+   - the scaffolding generation step creates a qa-context.json file. you have to fill details in this file. use these instructions to fill it -
+```
+project.name = name of the project folder
+project.framework = name of the framework on which the project is build upon(godspeed, django, express whatever the project is built on)
+project.testFramework = ask the user: for now, only provide the option: `jest`
+project.lastActivity = current timestampt in ISO format
 
-3. **Fill the `project.name` field in the `qa-context.json` file** with the name of the project folder.
-
-4. **Fill the `project.framework` field in the `qa-context.json file`** witht the framework of the project(godspeed, django, express whatever the project is built on)  
-   - For now, only provide the option: `jest`.
-   - fill the user choice in the project.testFramework field in the `qa-context.json` file
-
-5. **Ask the user which test framework to use.**
-   - For now, only provide the option: `jest`.
-   - fill the user choice in the project.testFramework field in the `qa-context.json` file
-
-6. **Set the `lastActivity` field** to the current timestamp in ISO format.
-7. **Tell the user that testing setup is done**
+note: dont change remove the existing content in the file. only fill the values specifie above.
+```
+4. **Tell the user that testing setup is done**
 
 ### Write One Test File
 
