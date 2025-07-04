@@ -80,10 +80,12 @@ note: dont change remove the existing content in the file. only fill the values 
    - If the function was found in `not started` array then move it to `pending` array
 
 5. **Assign the QA Document Writer mode:**
-   - Pass the function name and instruct the QA Document Writer mode to generate a detailed test strategy for this function.
+   - Use new_task tool to assign QA-Document-Writer mode
+   - Pass the function name and the type of test(unit or functional) to the QA Document writer and instruct him to generate a detailed test strategy for this function.
 
 6. **Assign the QA Coder mode:**
-   - Once the test strategy is created, pass the function name to the QA Coder mode and instruct him to write the test file for this function based on the test strategy.
+   - Once the test strategy is created, Use new_task tool to assign QA-Document-Writer mode
+   - Pass the function name and the type of test(unit or functional) to the QA Document writer and instruct him to write the test file for this function based on the test strategy.
 
 7. **Completion:**  
    - After the QA Coder agent has written the test file, update the qa-context.json file and move the function from `not started`/`pending` array to `completed` array and then inform the user:  
