@@ -24,6 +24,7 @@ For whichever task the user selects, look up its instructions in the section bel
 
 1. **Create a `qa-state.json` file** in the project root.  
    - If `qa-context.json` already exists, delete it and create a new one.
+   - add the `qa-context.json` file to .gitignore so that it is not pushed to github
 
 2. **The JSON file must follow this template:**
    ```json
